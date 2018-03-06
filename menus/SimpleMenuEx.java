@@ -29,12 +29,13 @@ public class SimpleMenuEx extends JFrame {
     private void createMenuBar() {
 
         JMenuBar menubar = new JMenuBar();
-        ImageIcon icon = new ImageIcon("src/main/resources/exit.png");
+        //ImageIcon icon = new ImageIcon(getClass().getResource("/exit.png"));
+        ImageIcon exitIcon = new ImageIcon("src/main/resources/exit.png");
 
         JMenu file = new JMenu("File");
         file.setMnemonic(KeyEvent.VK_F);
 
-        JMenuItem eMenuItem = new JMenuItem("Exit", icon);
+        JMenuItem eMenuItem = new JMenuItem("Exit", exitIcon);
         eMenuItem.setMnemonic(KeyEvent.VK_E);
         eMenuItem.setToolTipText("Exit application");
         eMenuItem.addActionListener((ActionEvent event) -> {
