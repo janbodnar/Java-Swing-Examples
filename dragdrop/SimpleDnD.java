@@ -28,9 +28,7 @@ public class SimpleDnD extends JFrame {
     }
 
     private void initUI() {
-
-        setTitle("Simple Drag & Drop");
-
+      
         button = new JButton("Button");
         field = new JTextField(15);
 
@@ -39,9 +37,9 @@ public class SimpleDnD extends JFrame {
 
         createLayout(field, button);
 
+        setTitle("Simple Drag & Drop");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        setLocationRelativeTo(null);        
     }
 
     private void createLayout(JComponent... arg) {
