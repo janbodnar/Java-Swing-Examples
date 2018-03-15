@@ -56,7 +56,6 @@ public class ListDnD extends JFrame {
         setTitle("ListDrop");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setVisible(true);
     }
 
     private class ListHandler extends TransferHandler {
