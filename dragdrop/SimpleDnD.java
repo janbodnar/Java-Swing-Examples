@@ -9,6 +9,14 @@ import javax.swing.TransferHandler;
 import java.awt.Container;
 import java.awt.EventQueue;
 
+/*
+Java Swing tutorial
+Simple text drag and drop example
+
+Author: Jan Bodnar
+Website: http://zetcode.com
+*/
+
 public class SimpleDnD extends JFrame {
 
     private JTextField field;
