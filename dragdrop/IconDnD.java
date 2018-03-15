@@ -57,7 +57,6 @@ public class IconDnD extends JFrame {
         setTitle("Icon Drag & Drop");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setVisible(true);
     }
 
     private class DragMouseAdapter extends MouseAdapter {
