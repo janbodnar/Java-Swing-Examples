@@ -39,6 +39,7 @@ class DrawingPanel extends JPanel {
 
             JOptionPane.showMessageDialog(this,
                     "Could not load images", "Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
         }
     }
 
