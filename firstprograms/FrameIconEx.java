@@ -13,7 +13,7 @@ public class FrameIconEx extends JFrame {
 
     private void initUI() {
 
-        ImageIcon webIcon = new ImageIcon("src/main/resources/web.png");
+        var webIcon = new ImageIcon("src/resources/web.png");
 
         setIconImage(webIcon.getImage());
 
@@ -26,7 +26,7 @@ public class FrameIconEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            FrameIconEx ex = new FrameIconEx();
+            var ex = new FrameIconEx();
             ex.setVisible(true);
         });
     }
