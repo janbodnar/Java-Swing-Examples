@@ -1,7 +1,11 @@
 package com.zetcode;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.GroupLayout;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Container;
+import java.awt.EventQueue;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
@@ -24,12 +28,13 @@ public class MouseMoveEventEx extends JFrame {
 
             @Override
             public void mouseMoved(MouseEvent e) {
+
                 super.mouseMoved(e);
 
                 int x = e.getX();
                 int y = e.getY();
 
-                String text = String.format("x: %d, y: %d", x, y);
+                var text = String.format("x: %d, y: %d", x, y);
 
                 coords.setText(text);
             }
@@ -43,8 +48,8 @@ public class MouseMoveEventEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -62,10 +67,12 @@ public class MouseMoveEventEx extends JFrame {
         pack();
     }
 
+
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
-            MouseMoveEventEx ex = new MouseMoveEventEx();
+            var ex = new MouseMoveEventEx();
             ex.setVisible(true);
         });
     }
 }
+
