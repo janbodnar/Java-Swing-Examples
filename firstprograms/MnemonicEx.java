@@ -1,13 +1,11 @@
 package com.zetcode;
 
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import java.awt.EventQueue;
+import java.awt.event.KeyEvent;
 
 public class MnemonicEx extends JFrame {
 
@@ -18,10 +16,8 @@ public class MnemonicEx extends JFrame {
 
     private void initUI() {
 
-        JButton btn = new JButton("Button");
-        btn.addActionListener((ActionEvent e) -> {
-            System.out.println("Button pressed");
-        });
+        var btn = new JButton("Button");
+        btn.addActionListener((event) -> System.out.println("Button pressed"));
 
         btn.setMnemonic(KeyEvent.VK_B);
 
@@ -34,8 +30,8 @@ public class MnemonicEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -56,7 +52,7 @@ public class MnemonicEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            MnemonicEx ex = new MnemonicEx();
+            var ex = new MnemonicEx();
             ex.setVisible(true);
         });
     }
