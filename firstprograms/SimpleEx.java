@@ -11,7 +11,7 @@ public class SimpleEx extends JFrame {
     }
 
     private void initUI() {
-
+        
         setTitle("Simple example");
         setSize(300, 200);
         setLocationRelativeTo(null);
@@ -21,7 +21,7 @@ public class SimpleEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            SimpleEx ex = new SimpleEx();
+            var ex = new SimpleEx();
             ex.setVisible(true);
         });
     }
