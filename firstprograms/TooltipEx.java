@@ -16,7 +16,7 @@ public class TooltipEx extends JFrame {
 
     private void initUI() {
 
-        JButton btn = new JButton("Button");
+        var btn = new JButton("Button");
         btn.setToolTipText("A button component");
 
         createLayout(btn);
@@ -28,8 +28,8 @@ public class TooltipEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        JPanel pane = (JPanel) getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = (JPanel) getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         pane.setToolTipText("Content pane");
@@ -52,7 +52,7 @@ public class TooltipEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            TooltipEx ex = new TooltipEx();
+            var ex = new TooltipEx();
             ex.setVisible(true);
         });
     }
