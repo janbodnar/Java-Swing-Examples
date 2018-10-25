@@ -1,7 +1,6 @@
 package com.zetcode;
 
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
@@ -10,7 +9,7 @@ import javax.swing.JPopupMenu;
 
 public class PopupMenuEx extends JFrame {
 
-    private JPopupMenu pmenu;
+    private JPopupMenu popupMenu;
 
     public PopupMenuEx() {
 
@@ -29,31 +28,34 @@ public class PopupMenuEx extends JFrame {
 
     private void createPopupMenu() {
 
-        pmenu = new JPopupMenu();
+        popupMenu = new JPopupMenu();
 
-        JMenuItem maxMi = new JMenuItem("Maximize");
-        maxMi.addActionListener((ActionEvent e) -> {
+        var maximizeMenuItem = new JMenuItem("Maximize");
+        maximizeMenuItem.addActionListener((e) -> {
             if (getExtendedState() != JFrame.MAXIMIZED_BOTH) {
                 setExtendedState(JFrame.MAXIMIZED_BOTH);
+                maximizeMenuItem.setEnabled(false);
             }
         });
 
-        pmenu.add(maxMi);
+        popupMenu.add(maximizeMenuItem);
 
-        JMenuItem quitMi = new JMenuItem("Quit");
-        quitMi.addActionListener((ActionEvent e) -> {
-            System.exit(0);
-        });
+        var quitMenuItem = new JMenuItem("Quit");
+        quitMenuItem.addActionListener((e) -> System.exit(0));
 
-        pmenu.add(quitMi);
+        popupMenu.add(quitMenuItem);
 
         addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseReleased(MouseEvent e) {
 
+                if (getExtendedState() != JFrame.MAXIMIZED_BOTH) {
+                    maximizeMenuItem.setEnabled(true);
+                }
+
                 if (e.getButton() == MouseEvent.BUTTON3) {
-                    pmenu.show(e.getComponent(), e.getX(), e.getY());
+                    popupMenu.show(e.getComponent(), e.getX(), e.getY());
                 }
             }
         });
@@ -62,8 +64,9 @@ public class PopupMenuEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            PopupMenuEx pm = new PopupMenuEx();
-            pm.setVisible(true);
+            var ex = new PopupMenuEx();
+            ex.setVisible(true);
         });
     }
 }
+
