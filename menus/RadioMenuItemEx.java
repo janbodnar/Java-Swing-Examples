@@ -37,43 +37,43 @@ public class RadioMenuItemEx extends JFrame {
 
     private void createMenuBar() {
 
-        JMenuBar menubar = new JMenuBar();
-        JMenu difMenu = new JMenu("Difficulty");
+        var menubar = new JMenuBar();
+        var difMenu = new JMenu("Difficulty");
         difMenu.setMnemonic(KeyEvent.VK_F);
 
-        ButtonGroup difGroup = new ButtonGroup();
+        var difGroup = new ButtonGroup();
 
-        JRadioButtonMenuItem eaRMi = new JRadioButtonMenuItem("Easy");
-        eaRMi.setSelected(true);
-        difMenu.add(eaRMi);
+        var easyRMenuItem = new JRadioButtonMenuItem("Easy");
+        easyRMenuItem.setSelected(true);
+        difMenu.add(easyRMenuItem);
 
-        eaRMi.addItemListener((ItemEvent e) -> {
+        easyRMenuItem.addItemListener((e) -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 statusbar.setText("Easy");
             }
         });
 
-        JRadioButtonMenuItem meRMi = new JRadioButtonMenuItem("Medium");
-        difMenu.add(meRMi);
+        var mediumRMenuItem = new JRadioButtonMenuItem("Medium");
+        difMenu.add(mediumRMenuItem);
 
-        meRMi.addItemListener((ItemEvent e) -> {
+        mediumRMenuItem.addItemListener((e) -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 statusbar.setText("Medium");
             }
         });
 
-        JRadioButtonMenuItem haRMi = new JRadioButtonMenuItem("Hard");
-        difMenu.add(haRMi);
+        var hardRMenuItem = new JRadioButtonMenuItem("Hard");
+        difMenu.add(hardRMenuItem);
 
-        haRMi.addItemListener((ItemEvent e) -> {
+        hardRMenuItem.addItemListener((e) -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 statusbar.setText("Hard");
             }
         });
 
-        difGroup.add(eaRMi);
-        difGroup.add(meRMi);
-        difGroup.add(haRMi);
+        difGroup.add(easyRMenuItem);
+        difGroup.add(mediumRMenuItem);
+        difGroup.add(hardRMenuItem);
 
         menubar.add(difMenu);
 
@@ -83,7 +83,7 @@ public class RadioMenuItemEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            RadioMenuItemEx ex = new RadioMenuItemEx();
+            var ex = new RadioMenuItemEx();
             ex.setVisible(true);
         });
     }
