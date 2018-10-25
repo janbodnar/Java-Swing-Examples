@@ -1,14 +1,12 @@
 package com.zetcode;
 
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JToolBar;
+import java.awt.EventQueue;
 
 public class ToolbarsEx extends JFrame {
 
@@ -29,17 +27,17 @@ public class ToolbarsEx extends JFrame {
 
     private void createToolBars() {
 
-        JToolBar toolbar1 = new JToolBar();
-        JToolBar toolbar2 = new JToolBar();
+        var toolbar1 = new JToolBar();
+        var toolbar2 = new JToolBar();
 
-        ImageIcon newIcon = new ImageIcon("src/main/resources/new2.png");
-        ImageIcon openIcon = new ImageIcon("src/main/resources/open2.png");
-        ImageIcon saveIcon = new ImageIcon("src/main/resources/save2.png");
-        ImageIcon exitIcon = new ImageIcon("src/main/resources/exit2.png");
+        var newIcon = new ImageIcon("src/resources/new2.png");
+        var openIcon = new ImageIcon("src/resources/open2.png");
+        var saveIcon = new ImageIcon("src/resources/save2.png");
+        var exitIcon = new ImageIcon("src/resources/exit2.png");
 
-        JButton newBtn = new JButton(newIcon);
-        JButton openBtn = new JButton(openIcon);
-        JButton saveBtn = new JButton(saveIcon);
+        var newBtn = new JButton(newIcon);
+        var openBtn = new JButton(openIcon);
+        var saveBtn = new JButton(saveIcon);
 
         toolbar1.add(newBtn);
         toolbar1.add(openBtn);
@@ -48,17 +46,15 @@ public class ToolbarsEx extends JFrame {
         JButton exitBtn = new JButton(exitIcon);
         toolbar2.add(exitBtn);
 
-        exitBtn.addActionListener((ActionEvent event) -> {
-            System.exit(0);
-        });
+        exitBtn.addActionListener((e) -> System.exit(0));
 
         createLayout(toolbar1, toolbar2);
     }
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setHorizontalGroup(gl.createParallelGroup()
@@ -77,7 +73,7 @@ public class ToolbarsEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ToolbarsEx ex = new ToolbarsEx();
+            var ex = new ToolbarsEx();
             ex.setVisible(true);
         });
     }
