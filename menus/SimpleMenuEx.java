@@ -28,23 +28,20 @@ public class SimpleMenuEx extends JFrame {
 
     private void createMenuBar() {
 
-        JMenuBar menubar = new JMenuBar();
-        //ImageIcon icon = new ImageIcon(getClass().getResource("/exit.png"));
-        ImageIcon exitIcon = new ImageIcon("src/main/resources/exit.png");
+        var menubar = new JMenuBar();
+        var exitIcon = new ImageIcon("src/resources/exit.png");
 
-        JMenu file = new JMenu("File");
-        file.setMnemonic(KeyEvent.VK_F);
+        var fileMenu = new JMenu("File");
+        fileMenu.setMnemonic(KeyEvent.VK_F);
 
-        JMenuItem eMenuItem = new JMenuItem("Exit", exitIcon);
+        var eMenuItem = new JMenuItem("Exit", exitIcon);
         eMenuItem.setMnemonic(KeyEvent.VK_E);
         eMenuItem.setToolTipText("Exit application");
-        eMenuItem.addActionListener((ActionEvent event) -> {
-            System.exit(0);
-        });
+        eMenuItem.addActionListener((event) -> System.exit(0));
 
-        file.add(eMenuItem);
+        fileMenu.add(eMenuItem);
 
-        menubar.add(file);
+        menubar.add(fileMenu);
 
         setJMenuBar(menubar);
     }
@@ -52,8 +49,9 @@ public class SimpleMenuEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            SimpleMenuEx ex = new SimpleMenuEx();
+            var ex = new SimpleMenuEx();
             ex.setVisible(true);
         });
     }
 }
+
