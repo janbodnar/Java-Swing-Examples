@@ -25,12 +25,12 @@ public class RightMenuEx extends JFrame {
 
     private void createMenuBar() {
 
-        JMenuBar menubar = new JMenuBar();
+        var menubar = new JMenuBar();
 
-        JMenu fileMenu = new JMenu("File");
-        JMenu viewMenu = new JMenu("View");
-        JMenu toolsMenu = new JMenu("Tools");
-        JMenu helpMenu = new JMenu("Help");
+        var fileMenu = new JMenu("File");
+        var viewMenu = new JMenu("View");
+        var toolsMenu = new JMenu("Tools");
+        var helpMenu = new JMenu("Help");
 
         menubar.add(fileMenu);
         menubar.add(viewMenu);
@@ -44,7 +44,7 @@ public class RightMenuEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            RightMenuEx ex = new RightMenuEx();
+            var ex = new RightMenuEx();
             ex.setVisible(true);
         });
     }
