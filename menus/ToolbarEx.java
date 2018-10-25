@@ -1,14 +1,13 @@
 package com.zetcode;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JToolBar;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
 public class ToolbarEx extends JFrame {
 
@@ -30,24 +29,23 @@ public class ToolbarEx extends JFrame {
 
     private void createMenuBar() {
 
-        JMenuBar menubar = new JMenuBar();
-        JMenu file = new JMenu("File");
-        menubar.add(file);
+        var menubar = new JMenuBar();
+        var fileMenu = new JMenu("File");
+
+        menubar.add(fileMenu);
         setJMenuBar(menubar);
     }
 
     private void createToolBar() {
 
-        JToolBar toolbar = new JToolBar();
+        var toolbar = new JToolBar();
 
-        ImageIcon icon = new ImageIcon("src/main/resources/exit2.png");
+        var icon = new ImageIcon("src/resources/exit2.png");
 
-        JButton exitButton = new JButton(icon);
+        var exitButton = new JButton(icon);
         toolbar.add(exitButton);
 
-        exitButton.addActionListener((ActionEvent event) -> {
-            System.exit(0);
-        });
+        exitButton.addActionListener((e) -> System.exit(0));
 
         add(toolbar, BorderLayout.NORTH);
     }
@@ -55,8 +53,10 @@ public class ToolbarEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ToolbarEx ex = new ToolbarEx();
+            var ex = new ToolbarEx();
             ex.setVisible(true);
         });
     }
 }
+
+
