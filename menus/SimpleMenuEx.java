@@ -1,7 +1,6 @@
 package com.zetcode;
 
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
