@@ -1,12 +1,11 @@
 package com.zetcode;
 
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import java.awt.EventQueue;
 
 public class SubmenuEx extends JFrame {
 
@@ -27,43 +26,40 @@ public class SubmenuEx extends JFrame {
 
     private void createMenuBar() {
 
-        JMenuBar menubar = new JMenuBar();
+        var menubar = new JMenuBar();
 
-        ImageIcon iconNew = new ImageIcon("src/main/resources/new.png");
-        ImageIcon iconOpen = new ImageIcon("src/main/resources/open.png");
-        ImageIcon iconSave = new ImageIcon("src/main/resources/save.png");
-        ImageIcon iconExit = new ImageIcon("src/main/resources/exit.png");
+        var iconNew = new ImageIcon("src/resources/new.png");
+        var iconOpen = new ImageIcon("src/resources/open.png");
+        var iconSave = new ImageIcon("src/resources/save.png");
+        var iconExit = new ImageIcon("src/resources/exit.png");
 
-        JMenu fileMenu = new JMenu("File");
+        var fileMenu = new JMenu("File");
+        var impMenu = new JMenu("Import");
 
-        JMenu impMenu = new JMenu("Import");
+        var newsMenuItem = new JMenuItem("Import newsfeed list...");
+        var bookmarksMenuItem = new JMenuItem("Import bookmarks...");
+        var importMailMenuItem = new JMenuItem("Import mail...");
 
-        JMenuItem newsfMi = new JMenuItem("Import newsfeed list...");
-        JMenuItem bookmMi = new JMenuItem("Import bookmarks...");
-        JMenuItem mailMi = new JMenuItem("Import mail...");
+        impMenu.add(newsMenuItem);
+        impMenu.add(bookmarksMenuItem);
+        impMenu.add(importMailMenuItem);
 
-        impMenu.add(newsfMi);
-        impMenu.add(bookmMi);
-        impMenu.add(mailMi);
+        var newMenuItem = new JMenuItem("New", iconNew);
+        var openMenuItem = new JMenuItem("Open", iconOpen);
+        var saveMenuItem = new JMenuItem("Save", iconSave);
 
-        JMenuItem newMi = new JMenuItem("New", iconNew);
-        JMenuItem openMi = new JMenuItem("Open", iconOpen);
-        JMenuItem saveMi = new JMenuItem("Save", iconSave);
+        var exitMenuItem = new JMenuItem("Exit", iconExit);
+        exitMenuItem.setToolTipText("Exit application");
 
-        JMenuItem exitMi = new JMenuItem("Exit", iconExit);
-        exitMi.setToolTipText("Exit application");
+        exitMenuItem.addActionListener((event) -> System.exit(0));
 
-        exitMi.addActionListener((ActionEvent event) -> {
-            System.exit(0);
-        });
-
-        fileMenu.add(newMi);
-        fileMenu.add(openMi);
-        fileMenu.add(saveMi);
+        fileMenu.add(newMenuItem);
+        fileMenu.add(openMenuItem);
+        fileMenu.add(saveMenuItem);
         fileMenu.addSeparator();
         fileMenu.add(impMenu);
         fileMenu.addSeparator();
-        fileMenu.add(exitMi);
+        fileMenu.add(exitMenuItem);
 
         menubar.add(fileMenu);
 
@@ -73,7 +69,7 @@ public class SubmenuEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            SubmenuEx ex = new SubmenuEx();
+            var ex = new SubmenuEx();
             ex.setVisible(true);
         });
     }
