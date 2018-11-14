@@ -8,8 +8,6 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.Document;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +23,7 @@ public class JTextFieldEx extends JFrame {
 
     private void initUI() {
 
-        JTextField field = new JTextField(15);
+        var field = new JTextField(15);
         lbl = new JLabel();
 
         field.getDocument().addDocumentListener(new MyDocumentListener());
@@ -57,7 +55,7 @@ public class JTextFieldEx extends JFrame {
 
         private void updateLabel(DocumentEvent e) {
 
-            Document doc = e.getDocument();
+            var doc = e.getDocument();
             int len = doc.getLength();
 
             try {
@@ -66,6 +64,7 @@ public class JTextFieldEx extends JFrame {
                 Logger.getLogger(JTextFieldEx.class.getName()).log(
                         Level.WARNING, "Bad location", ex);
             }
+
             lbl.setText(text);
 
         }
@@ -73,8 +72,8 @@ public class JTextFieldEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -99,8 +98,10 @@ public class JTextFieldEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            JTextFieldEx ex = new JTextFieldEx();
+
+            var ex = new JTextFieldEx();
             ex.setVisible(true);
         });
     }
 }
+
