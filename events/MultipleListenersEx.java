@@ -7,9 +7,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
-import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,7 +40,7 @@ public class MultipleListenersEx extends JFrame {
 
         int currentYear = Year.now().getValue();
 
-        SpinnerModel yearModel = new SpinnerNumberModel(currentYear,
+        var yearModel = new SpinnerNumberModel(currentYear,
                 currentYear - 100,
                 currentYear + 100,
                 1);
@@ -59,8 +57,8 @@ public class MultipleListenersEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -93,7 +91,8 @@ public class MultipleListenersEx extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Integer val = (Integer) spinner.getValue();
+
+            var val = (Integer) spinner.getValue();
             spinner.setValue(++val);
         }
     }
@@ -102,6 +101,7 @@ public class MultipleListenersEx extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            
             statusBar.setText(Integer.toString(++count));
         }
     }
@@ -109,8 +109,9 @@ public class MultipleListenersEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            MultipleListenersEx ml = new MultipleListenersEx();
-            ml.setVisible(true);
+            var ex = new MultipleListenersEx();
+            ex.setVisible(true);
         });
     }
 }
+
