@@ -5,7 +5,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Container;
 import java.awt.EventQueue;
 
 public class LabelEx2 extends JFrame {
@@ -17,10 +16,10 @@ public class LabelEx2 extends JFrame {
 
     private void initUI() {
 
-        JLabel lbl1 = new JLabel(new ImageIcon("src/main/resources/cpu.png"));
-        JLabel lbl2 = new JLabel(new ImageIcon("src/main/resources/drive.png"));
-        JLabel lbl3 = new JLabel(new ImageIcon("src/main/resources/laptop.png"));
-        JLabel lbl4 = new JLabel(new ImageIcon("src/main/resources/player.png"));
+        var lbl1 = new JLabel(new ImageIcon("src/resources/cpu.png"));
+        var lbl2 = new JLabel(new ImageIcon("src/resources/drive.png"));
+        var lbl3 = new JLabel(new ImageIcon("src/resources/laptop.png"));
+        var lbl4 = new JLabel(new ImageIcon("src/resources/player.png"));
 
         createLayout(lbl1, lbl2, lbl3, lbl4);
 
@@ -31,8 +30,8 @@ public class LabelEx2 extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -58,7 +57,8 @@ public class LabelEx2 extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            LabelEx2 ex = new LabelEx2();
+
+            var ex = new LabelEx2();
             ex.setVisible(true);
         });
     }
