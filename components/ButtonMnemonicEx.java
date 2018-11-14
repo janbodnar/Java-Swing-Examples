@@ -5,7 +5,6 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,21 +19,21 @@ public class ButtonMnemonicEx extends JFrame implements ActionListener {
 
     private void initUI() {
 
-        JButton showBtn = new JButton("Show");
+        var showBtn = new JButton("Show");
         showBtn.addActionListener(this);
         showBtn.setMnemonic(KeyEvent.VK_S);
 
         createLayout(showBtn);
 
-        setTitle("JButtons");
+        setTitle("JButton");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -63,7 +62,8 @@ public class ButtonMnemonicEx extends JFrame implements ActionListener {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ButtonMnemonicEx ex = new ButtonMnemonicEx();
+
+            var ex = new ButtonMnemonicEx();
             ex.setVisible(true);
         });
     }
