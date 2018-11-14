@@ -1,14 +1,13 @@
 package com.zetcode;
 
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class AdapterEx extends JFrame {
 
@@ -39,8 +38,8 @@ public class AdapterEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -66,8 +65,8 @@ public class AdapterEx extends JFrame {
         @Override
         public void componentMoved(ComponentEvent e) {
 
-            int x = e.getComponent().getX();
-            int y = e.getComponent().getY();
+            var x = e.getComponent().getX();
+            var y = e.getComponent().getY();
 
             labelx.setText("x: " + x);
             labely.setText("y: " + y);
@@ -77,8 +76,9 @@ public class AdapterEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            AdapterEx ex = new AdapterEx();
+            var ex = new AdapterEx();
             ex.setVisible(true);
         });
     }
 }
+
