@@ -4,7 +4,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 
@@ -21,15 +20,15 @@ public class GroupLayoutCornerButtonsEx extends JFrame {
 
         setPreferredSize(new Dimension(300, 200));
 
-        Container cpane = getContentPane();
-        GroupLayout gl = new GroupLayout(cpane);
+        var cpane = getContentPane();
+        var gl = new GroupLayout(cpane);
         cpane.setLayout(gl);
 
         gl.setAutoCreateGaps(true);
         gl.setAutoCreateContainerGaps(true);
 
-        JButton okButton = new JButton("OK");
-        JButton closeButton = new JButton("Close");
+        var okButton = new JButton("OK");
+        var closeButton = new JButton("Close");
 
         gl.setHorizontalGroup(gl.createSequentialGroup()
                 .addPreferredGap(RELATED,
@@ -46,8 +45,7 @@ public class GroupLayoutCornerButtonsEx extends JFrame {
                         .addComponent(closeButton))
         );
 
-        gl.linkSize(SwingConstants.HORIZONTAL,
-                okButton, closeButton);
+        gl.linkSize(SwingConstants.HORIZONTAL, okButton, closeButton);
 
         pack();
 
@@ -60,7 +58,7 @@ public class GroupLayoutCornerButtonsEx extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            GroupLayoutCornerButtonsEx ex = new GroupLayoutCornerButtonsEx();
+            var ex = new GroupLayoutCornerButtonsEx();
             ex.setVisible(true);
         });
     }
