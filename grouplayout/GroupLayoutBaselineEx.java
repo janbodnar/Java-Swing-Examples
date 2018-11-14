@@ -4,7 +4,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Container;
 import java.awt.EventQueue;
 
 import static javax.swing.GroupLayout.Alignment.BASELINE;
@@ -22,8 +21,8 @@ public class GroupLayoutBaselineEx extends JFrame {
 
     private void initUI() {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         distros = new String[] {"Easy", "Medium", "Hard"};
@@ -59,8 +58,9 @@ public class GroupLayoutBaselineEx extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            GroupLayoutBaselineEx ex = new GroupLayoutBaselineEx();
+            var ex = new GroupLayoutBaselineEx();
             ex.setVisible(true);
         });
     }
 }
+
