@@ -4,7 +4,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.Container;
 import java.awt.EventQueue;
 
 import static javax.swing.GroupLayout.Alignment.LEADING;
@@ -19,12 +18,12 @@ public class GroupLayoutSimpleEx extends JFrame {
 
     private void initUI() {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
-        JLabel lbl = new JLabel("Name:");
-        JTextField field = new JTextField(15);
+        var lbl = new JLabel("Name:");
+        var field = new JTextField(15);
 
         GroupLayout.SequentialGroup sg = gl.createSequentialGroup();
 
@@ -52,7 +51,7 @@ public class GroupLayoutSimpleEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            GroupLayoutSimpleEx ex = new GroupLayoutSimpleEx();
+            var ex = new GroupLayoutSimpleEx();
             ex.setVisible(true);
         });
     }
