@@ -5,7 +5,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import java.awt.Container;
 import java.awt.EventQueue;
 
 public class ImageIconButtonEx extends JFrame {
@@ -17,12 +16,12 @@ public class ImageIconButtonEx extends JFrame {
 
     private void initUI() {
 
-        ImageIcon saveIcon = new ImageIcon("src/main/resources/save.png");
-        ImageIcon homeIcon = new ImageIcon("src/main/resources/home.png");
+        var saveIcon = new ImageIcon("src/resources/save.png");
+        var homeIcon = new ImageIcon("src/resources/home.png");
 
-        JButton quitBtn = new JButton("Quit");
-        JButton saveBtn = new JButton(saveIcon);
-        JButton homeBtn = new JButton("Home", homeIcon);
+        var quitBtn = new JButton("Quit");
+        var saveBtn = new JButton(saveIcon);
+        var homeBtn = new JButton("Home", homeIcon);
 
         createLayout(quitBtn, saveBtn, homeBtn);
 
@@ -33,8 +32,8 @@ public class ImageIconButtonEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -60,7 +59,8 @@ public class ImageIconButtonEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ImageIconButtonEx ex = new ImageIconButtonEx();
+
+            var ex = new ImageIconButtonEx();
             ex.setVisible(true);
         });
     }
