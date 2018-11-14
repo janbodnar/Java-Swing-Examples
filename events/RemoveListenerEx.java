@@ -1,16 +1,15 @@
 package com.zetcode;
 
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 
 public class RemoveListenerEx extends JFrame {
 
@@ -26,10 +25,6 @@ public class RemoveListenerEx extends JFrame {
     }
 
     private void initUI() {
-
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
-        pane.setLayout(gl);
 
         addBtn = new JButton("+");
         buttonlistener = new ButtonListener();
@@ -54,8 +49,8 @@ public class RemoveListenerEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -92,8 +87,9 @@ public class RemoveListenerEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            RemoveListenerEx ex = new RemoveListenerEx();
+            var ex = new RemoveListenerEx();
             ex.setVisible(true);
         });
     }
 }
+
