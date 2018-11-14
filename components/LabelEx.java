@@ -5,7 +5,6 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -18,7 +17,7 @@ public class LabelEx extends JFrame {
 
     private void initUI() {
 
-        String lyrics =  "<html>It's way too late to think of<br>" +
+        var lyrics =  "<html>It's way too late to think of<br>" +
                 "Someone I would call now<br>" +
                 "And neon signs got tired<br>" +
                 "Red eye flights help the stars out<br>" +
@@ -50,7 +49,7 @@ public class LabelEx extends JFrame {
                 "I'd say stay in bed, world<br>" +
                 "Sleep in peace</html>";
 
-        JLabel label = new JLabel(lyrics);
+        var label = new JLabel(lyrics);
         label.setFont(new Font("Serif", Font.PLAIN, 14));
         label.setForeground(new Color(50, 50, 25));
 
@@ -63,8 +62,8 @@ public class LabelEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -83,7 +82,8 @@ public class LabelEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            LabelEx ex = new LabelEx();
+
+            var ex = new LabelEx();
             ex.setVisible(true);
         });
     }
