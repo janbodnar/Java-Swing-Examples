@@ -8,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.Component;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
@@ -27,13 +26,13 @@ public class PasswordEx extends JFrame {
 
     private void initUI() {
 
-        JLabel lbl1 = new JLabel("Login");
-        JLabel lbl2 = new JLabel("Password");
+        var lbl1 = new JLabel("Login");
+        var lbl2 = new JLabel("Password");
 
         loginField = new JTextField(15);
         passField = new JPasswordField(15);
-        JButton submitButton = new JButton("Submit");
 
+        var submitButton = new JButton("Submit");
         submitButton.addActionListener(new SubmitAction());
 
         createLayout(lbl1, loginField, lbl2, passField, submitButton);
@@ -53,10 +52,11 @@ public class PasswordEx extends JFrame {
 
         private void doSubmitAction() {
 
-            String login = loginField.getText();
-            char[] passwd = passField.getPassword();
+            var login = loginField.getText();
+            var passwd = passField.getPassword();
 
             if (!login.isEmpty() && passwd.length != 0) {
+
                 System.out.format("User %s entered %s password%n",
                         login, String.valueOf(passwd));
             }
@@ -67,8 +67,8 @@ public class PasswordEx extends JFrame {
 
     private void createLayout(Component... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateGaps(true);
@@ -105,7 +105,8 @@ public class PasswordEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            PasswordEx ex = new PasswordEx();
+
+            var ex = new PasswordEx();
             ex.setVisible(true);
         });
     }
