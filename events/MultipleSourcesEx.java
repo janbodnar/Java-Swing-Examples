@@ -6,7 +6,6 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,18 +26,18 @@ public class MultipleSourcesEx extends JFrame {
         statusBar = new JLabel("Ready");
         statusBar.setBorder(BorderFactory.createEtchedBorder());
 
-        ButtonListener butListener = new ButtonListener();
+        var butListener = new ButtonListener();
 
-        JButton closeBtn = new JButton("Close");
+        var closeBtn = new JButton("Close");
         closeBtn.addActionListener(butListener);
 
-        JButton openBtn = new JButton("Open");
+        var openBtn = new JButton("Open");
         openBtn.addActionListener(butListener);
 
-        JButton findBtn = new JButton("Find");
+        var findBtn = new JButton("Find");
         findBtn.addActionListener(butListener);
 
-        JButton saveBtn = new JButton("Save");
+        var saveBtn = new JButton("Save");
         saveBtn.addActionListener(butListener);
 
         createLayout(closeBtn, openBtn, findBtn, saveBtn, statusBar);
@@ -50,8 +49,8 @@ public class MultipleSourcesEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -87,8 +86,9 @@ public class MultipleSourcesEx extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            JButton o = (JButton) e.getSource();
-            String label = o.getText();
+            var o = (JButton) e.getSource();
+            var label = o.getText();
+
             statusBar.setText(" " + label + " button clicked");
         }
     }
@@ -96,7 +96,8 @@ public class MultipleSourcesEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            MultipleSourcesEx ex = new MultipleSourcesEx();
+
+            var ex = new MultipleSourcesEx();
             ex.setVisible(true);
         });
     }
