@@ -1,13 +1,12 @@
 package com.zetcode;
 
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DerivedClassEx extends JFrame {
 
@@ -18,7 +17,7 @@ public class DerivedClassEx extends JFrame {
 
     private void initUI() {
 
-        MyButton closeBtn = new MyButton("Close");
+        var closeBtn = new MyButton("Close");
 
         createLayout(closeBtn);
 
@@ -29,8 +28,8 @@ public class DerivedClassEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -65,7 +64,8 @@ public class DerivedClassEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            DerivedClassEx ex = new DerivedClassEx();
+            
+            var ex = new DerivedClassEx();
             ex.setVisible(true);
         });
     }
