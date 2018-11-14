@@ -1,13 +1,12 @@
 package com.zetcode;
 
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class InnerClassEx extends JFrame {
 
@@ -18,9 +17,9 @@ public class InnerClassEx extends JFrame {
 
     private void initUI() {
 
-        JButton closeBtn = new JButton("Close");
+        var closeBtn = new JButton("Close");
 
-        ButtonCloseListener listener = new ButtonCloseListener();
+        var listener = new ButtonCloseListener();
         closeBtn.addActionListener(listener);
 
         createLayout(closeBtn);
@@ -32,8 +31,8 @@ public class InnerClassEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -63,7 +62,8 @@ public class InnerClassEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            InnerClassEx ex = new InnerClassEx();
+            
+            var ex = new InnerClassEx();
             ex.setVisible(true);
         });
     }
