@@ -4,7 +4,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.Container;
 import java.awt.EventQueue;
 
 import static javax.swing.GroupLayout.Alignment.BASELINE;
@@ -19,17 +18,17 @@ public class GroupLayoutPasswordEx extends JFrame {
 
     private void initUI() {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
-        JLabel serviceLbl = new JLabel("Service:");
-        JLabel userNameLbl = new JLabel("User name:");
-        JLabel passwordLbl = new JLabel("Password:");
+        var serviceLbl = new JLabel("Service:");
+        var userNameLbl = new JLabel("User name:");
+        var passwordLbl = new JLabel("Password:");
 
-        JTextField field1 = new JTextField(10);
-        JTextField field2 = new JTextField(10);
-        JTextField field3 = new JTextField(10);
+        var field1 = new JTextField(10);
+        var field2 = new JTextField(10);
+        var field3 = new JTextField(10);
 
         gl.setAutoCreateGaps(true);
         gl.setAutoCreateContainerGaps(true);
@@ -68,8 +67,9 @@ public class GroupLayoutPasswordEx extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            GroupLayoutPasswordEx ex = new GroupLayoutPasswordEx();
+            var ex = new GroupLayoutPasswordEx();
             ex.setVisible(true);
         });
     }
 }
+
