@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
-import java.awt.Container;
 import java.awt.EventQueue;
 
 public class SliderEx2 extends JFrame {
@@ -32,6 +31,7 @@ public class SliderEx2 extends JFrame {
         slider = new JSlider(0, 150, 0);
 
         slider.addChangeListener((ChangeEvent event) -> {
+
             int value = slider.getValue();
 
             if (value == 0) {
@@ -56,16 +56,16 @@ public class SliderEx2 extends JFrame {
 
     private void loadImages() {
 
-        mute = new ImageIcon("src/main/resources/mute.png");
-        min = new ImageIcon("src/main/resources/min.png");
-        med = new ImageIcon("src/main/resources/med.png");
-        max = new ImageIcon("src/main/resources/max.png");
+        mute = new ImageIcon("src/resources/mute.png");
+        min = new ImageIcon("src/resources/min.png");
+        med = new ImageIcon("src/resources/med.png");
+        max = new ImageIcon("src/resources/max.png");
     }
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -87,7 +87,8 @@ public class SliderEx2 extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            SliderEx2 ex = new SliderEx2();
+
+            var ex = new SliderEx2();
             ex.setVisible(true);
         });
     }
