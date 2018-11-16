@@ -1,17 +1,14 @@
 package com.zetcode;
 
-import java.awt.Container;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 
 public class ListEx extends JFrame {
 
@@ -25,16 +22,19 @@ public class ListEx extends JFrame {
 
     private void initUI() {
 
-        GraphicsEnvironment ge
-                = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        var ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 
-        String[] fonts = ge.getAvailableFontFamilyNames();
+        var fonts = ge.getAvailableFontFamilyNames();
 
-        JList list = new JList(fonts);
+        var list = new JList(fonts);
+
         list.addListSelectionListener(e -> {
+
             if (!e.getValueIsAdjusting()) {
-                String name = (String) list.getSelectedValue();
-                Font font = new Font(name, Font.PLAIN, 12);
+
+                var name = (String) list.getSelectedValue();
+                var font = new Font(name, Font.PLAIN, 12);
+
                 label.setFont(font);
             }
         });
@@ -54,8 +54,8 @@ public class ListEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -78,7 +78,8 @@ public class ListEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ListEx ex = new ListEx();
+
+            var ex = new ListEx();
             ex.setVisible(true);
         });
     }
