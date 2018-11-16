@@ -4,7 +4,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -19,7 +18,7 @@ public class CheckBoxEx extends JFrame
 
     private void initUI() {
 
-        JCheckBox cb = new JCheckBox("Show title", true);
+        var cb = new JCheckBox("Show title", true);
         cb.addItemListener(this);
 
         createLayout(cb);
@@ -46,8 +45,8 @@ public class CheckBoxEx extends JFrame
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -64,7 +63,8 @@ public class CheckBoxEx extends JFrame
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            CheckBoxEx ex = new CheckBoxEx();
+
+            var ex = new CheckBoxEx();
             ex.setVisible(true);
         });
     }
