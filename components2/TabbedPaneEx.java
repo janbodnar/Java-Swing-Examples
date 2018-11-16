@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import java.awt.Container;
 import java.awt.EventQueue;
 
 public class TabbedPaneEx extends JFrame {
@@ -18,13 +17,13 @@ public class TabbedPaneEx extends JFrame {
 
     private void initUI() {
 
-        JTabbedPane tbp = new JTabbedPane();
+        var tabbedPane = new JTabbedPane();
 
-        tbp.addTab("First", createPanel("First panel"));
-        tbp.addTab("Second", createPanel("Second panel"));
-        tbp.addTab("Third", createPanel("Third panel"));
+        tabbedPane.addTab("First", createPanel("First panel"));
+        tabbedPane.addTab("Second", createPanel("Second panel"));
+        tabbedPane.addTab("Third", createPanel("Third panel"));
 
-        createLayout(tbp);
+        createLayout(tabbedPane);
 
         setTitle("JTabbedPane");
         setLocationRelativeTo(null);
@@ -33,8 +32,8 @@ public class TabbedPaneEx extends JFrame {
 
     private JPanel createPanel(String text) {
 
-        JPanel panel = new JPanel();
-        JLabel lbl = new JLabel(text);
+        var panel = new JPanel();
+        var lbl = new JLabel(text);
         panel.add(lbl);
 
         return panel;
@@ -42,8 +41,8 @@ public class TabbedPaneEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -63,7 +62,8 @@ public class TabbedPaneEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            TabbedPaneEx ex = new TabbedPaneEx();
+
+            var ex = new TabbedPaneEx();
             ex.setVisible(true);
         });
     }
