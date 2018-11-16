@@ -1,65 +1,43 @@
 package com.zetcode;
 
 import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JSlider;
-import javax.swing.event.ChangeEvent;
 import java.awt.EventQueue;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-public class SliderEx2 extends JFrame {
+import static javax.swing.GroupLayout.Alignment.BASELINE;
 
-    private JSlider slider;
-    private JLabel lbl;
+public class ComboBoxEx extends JFrame
+        implements ItemListener {
 
-    private ImageIcon mute;
-    private ImageIcon min;
-    private ImageIcon med;
-    private ImageIcon max;
+    private JLabel display;
+    private JComboBox<String> box;
+    private String[] distros;
 
-    public SliderEx2() {
+    public ComboBoxEx() {
 
         initUI();
     }
 
     private void initUI() {
 
-        loadImages();
+        distros = new String[]{"Ubuntu", "Redhat", "Arch",
+                "Debian", "Mint"};
 
-        slider = new JSlider(0, 150, 0);
+        box = new JComboBox<>(distros);
+        box.addItemListener(this);
 
-        slider.addChangeListener((ChangeEvent event) -> {
+        display = new JLabel("Ubuntu");
 
-            int value = slider.getValue();
+        createLayout(box, display);
 
-            if (value == 0) {
-                lbl.setIcon(mute);
-            } else if (value > 0 && value <= 30) {
-                lbl.setIcon(min);
-            } else if (value > 30 && value < 80) {
-                lbl.setIcon(med);
-            } else {
-                lbl.setIcon(max);
-            }
-        });
-
-        lbl = new JLabel(mute, JLabel.CENTER);
-
-        createLayout(slider, lbl);
-
-        setTitle("JSlider");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle("JComboBox");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-    }
-
-    private void loadImages() {
-
-        mute = new ImageIcon("src/resources/mute.png");
-        min = new ImageIcon("src/resources/min.png");
-        med = new ImageIcon("src/resources/med.png");
-        max = new ImageIcon("src/resources/max.png");
     }
 
     private void createLayout(JComponent... arg) {
@@ -76,7 +54,7 @@ public class SliderEx2 extends JFrame {
                 .addComponent(arg[1])
         );
 
-        gl.setVerticalGroup(gl.createParallelGroup()
+        gl.setVerticalGroup(gl.createParallelGroup(BASELINE)
                 .addComponent(arg[0])
                 .addComponent(arg[1])
         );
@@ -84,11 +62,19 @@ public class SliderEx2 extends JFrame {
         pack();
     }
 
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            display.setText(e.getItem().toString());
+        }
+    }
+
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
 
-            var ex = new SliderEx2();
+            var ex = new ComboBoxEx();
             ex.setVisible(true);
         });
     }
