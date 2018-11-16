@@ -5,7 +5,6 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 
@@ -18,8 +17,8 @@ public class TextAreaEx extends JFrame {
 
     private void initUI() {
 
-        JTextArea area = new JTextArea();
-        JScrollPane spane = new JScrollPane(area);
+        var area = new JTextArea();
+        var spane = new JScrollPane(area);
 
         area.setLineWrap(true);
         area.setWrapStyleWord(true);
@@ -34,8 +33,8 @@ public class TextAreaEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -56,7 +55,8 @@ public class TextAreaEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            TextAreaEx ex = new TextAreaEx();
+
+            var ex = new TextAreaEx();
             ex.setVisible(true);
         });
     }
