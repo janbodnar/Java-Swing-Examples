@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
-import java.awt.Container;
 import java.awt.EventQueue;
 
 public class SliderEx extends JFrame {
@@ -43,8 +42,8 @@ public class SliderEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -66,7 +65,8 @@ public class SliderEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            SliderEx ex = new SliderEx();
+
+            var ex = new SliderEx();
             ex.setVisible(true);
         });
     }
