@@ -5,7 +5,6 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -23,7 +22,7 @@ public class TextPaneEx extends JFrame {
     private void initUI() {
 
         textPane = new JTextPane();
-        JScrollPane spane = new JScrollPane(textPane);
+        var spane = new JScrollPane(textPane);
 
         textPane.setContentType("text/html");
         textPane.setEditable(false);
@@ -39,8 +38,8 @@ public class TextPaneEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -60,8 +59,8 @@ public class TextPaneEx extends JFrame {
     private void loadFile() {
 
         try {
-            String cd = System.getProperty("user.dir") + "/";
-            textPane.setPage("File:///" + cd + "test.html");
+            var curDir = System.getProperty("user.dir") + "/";
+            textPane.setPage("File:///" + curDir + "test.html");
         } catch (IOException ex) {
             Logger.getLogger(this.getName()).log(Level.SEVERE,
                     "Failed to load file", ex);
@@ -71,7 +70,8 @@ public class TextPaneEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            TextPaneEx ex = new TextPaneEx();
+
+            var ex = new TextPaneEx();
             ex.setVisible(true);
         });
     }
