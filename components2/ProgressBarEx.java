@@ -7,7 +7,6 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,8 +44,8 @@ public class ProgressBarEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -104,7 +103,8 @@ public class ProgressBarEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ProgressBarEx ex = new ProgressBarEx();
+
+            var ex = new ProgressBarEx();
             ex.setVisible(true);
         });
     }
