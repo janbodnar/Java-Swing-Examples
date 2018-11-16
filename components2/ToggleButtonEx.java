@@ -7,7 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -54,8 +53,8 @@ public class ToggleButtonEx extends JFrame
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -86,7 +85,8 @@ public class ToggleButtonEx extends JFrame
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        Color color = display.getBackground();
+        var color = display.getBackground();
+
         int red = color.getRed();
         int green = color.getGreen();
         int blue = color.getBlue();
@@ -115,14 +115,15 @@ public class ToggleButtonEx extends JFrame
             }
         }
 
-        Color setCol = new Color(red, green, blue);
+        var setCol = new Color(red, green, blue);
         display.setBackground(setCol);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ToggleButtonEx ex = new ToggleButtonEx();
+
+            var ex = new ToggleButtonEx();
             ex.setVisible(true);
         });
     }
