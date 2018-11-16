@@ -1,50 +1,71 @@
 package com.zetcode;
 
 import javax.swing.GroupLayout;
-import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Container;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
 import java.awt.EventQueue;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
-import static javax.swing.GroupLayout.Alignment.BASELINE;
+public class SliderEx2 extends JFrame {
 
-public class ComboBoxEx extends JFrame
-        implements ItemListener {
+    private JSlider slider;
+    private JLabel lbl;
 
-    private JLabel display;
-    private JComboBox<String> box;
-    private String[] distros;
+    private ImageIcon mute;
+    private ImageIcon min;
+    private ImageIcon med;
+    private ImageIcon max;
 
-    public ComboBoxEx() {
+    public SliderEx2() {
 
         initUI();
     }
 
     private void initUI() {
 
-        distros = new String[]{"Ubuntu", "Redhat", "Arch",
-                "Debian", "Mint"};
+        loadImages();
 
-        box = new JComboBox<>(distros);
-        box.addItemListener(this);
+        slider = new JSlider(0, 150, 0);
 
-        display = new JLabel("Ubuntu");
+        slider.addChangeListener((ChangeEvent event) -> {
 
-        createLayout(box, display);
+            int value = slider.getValue();
 
-        setTitle("JComboBox");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            if (value == 0) {
+                lbl.setIcon(mute);
+            } else if (value > 0 && value <= 30) {
+                lbl.setIcon(min);
+            } else if (value > 30 && value < 80) {
+                lbl.setIcon(med);
+            } else {
+                lbl.setIcon(max);
+            }
+        });
+
+        lbl = new JLabel(mute, JLabel.CENTER);
+
+        createLayout(slider, lbl);
+
+        setTitle("JSlider");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+    }
+
+    private void loadImages() {
+
+        mute = new ImageIcon("src/resources/mute.png");
+        min = new ImageIcon("src/resources/min.png");
+        med = new ImageIcon("src/resources/med.png");
+        max = new ImageIcon("src/resources/max.png");
     }
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -55,7 +76,7 @@ public class ComboBoxEx extends JFrame
                 .addComponent(arg[1])
         );
 
-        gl.setVerticalGroup(gl.createParallelGroup(BASELINE)
+        gl.setVerticalGroup(gl.createParallelGroup()
                 .addComponent(arg[0])
                 .addComponent(arg[1])
         );
@@ -63,18 +84,11 @@ public class ComboBoxEx extends JFrame
         pack();
     }
 
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-
-        if (e.getStateChange() == ItemEvent.SELECTED) {
-            display.setText(e.getItem().toString());
-        }
-    }
-
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ComboBoxEx ex = new ComboBoxEx();
+
+            var ex = new SliderEx2();
             ex.setVisible(true);
         });
     }
