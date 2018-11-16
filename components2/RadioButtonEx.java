@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.LayoutStyle;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -26,13 +25,13 @@ public class RadioButtonEx extends JFrame
 
     private void initUI() {
 
-        JLabel lbl = new JLabel("Difficulty");
+        var lbl = new JLabel("Difficulty");
 
-        ButtonGroup group = new ButtonGroup();
+        var group = new ButtonGroup();
 
-        JRadioButton rb1 = new JRadioButton("Easy", true);
-        JRadioButton rb2 = new JRadioButton("Medium");
-        JRadioButton rb3 = new JRadioButton("Hard");
+        var rb1 = new JRadioButton("Easy", true);
+        var rb2 = new JRadioButton("Medium");
+        var rb3 = new JRadioButton("Hard");
 
         group.add(rb1);
         group.add(rb2);
@@ -59,10 +58,10 @@ public class RadioButtonEx extends JFrame
 
         if (sel == ItemEvent.SELECTED) {
 
-            JRadioButton button = (JRadioButton) e.getSource();
-            String text = button.getText();
+            var button = (JRadioButton) e.getSource();
+            var text = button.getText();
 
-            StringBuilder sb = new StringBuilder("Selected: ");
+            var sb = new StringBuilder("Selected: ");
             sb.append(text);
 
             sbar.setText(sb.toString());
@@ -71,8 +70,8 @@ public class RadioButtonEx extends JFrame
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -100,7 +99,8 @@ public class RadioButtonEx extends JFrame
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            RadioButtonEx ex = new RadioButtonEx();
+
+            var ex = new RadioButtonEx();
             ex.setVisible(true);
         });
     }
