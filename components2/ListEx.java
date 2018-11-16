@@ -23,9 +23,7 @@ public class ListEx extends JFrame {
     private void initUI() {
 
         var ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-
         var fonts = ge.getAvailableFontFamilyNames();
-
         var list = new JList(fonts);
 
         list.addListSelectionListener(e -> {
