@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Frame;
@@ -20,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import static javax.swing.GroupLayout.Alignment.CENTER;
+
 
 class AboutDialog extends JDialog {
 
@@ -31,16 +31,16 @@ class AboutDialog extends JDialog {
 
     private void initUI() {
 
-        ImageIcon icon = new ImageIcon("src/main/resources/notes.png");
-        JLabel label = new JLabel(icon);
+        var icon = new ImageIcon("src/resources/notes.png");
+        var imgLabel = new JLabel(icon);
 
-        JLabel name = new JLabel("Notes, 1.23");
-        name.setFont(new Font("Serif", Font.BOLD, 13));
+        var textLabel = new JLabel("Notes, 1.23");
+        textLabel.setFont(new Font("Serif", Font.BOLD, 13));
 
-        JButton btn = new JButton("OK");
-        btn.addActionListener(event -> dispose());
+        var okBtn = new JButton("OK");
+        okBtn.addActionListener(event -> dispose());
 
-        createLayout(name, label, btn);
+        createLayout(textLabel, imgLabel, okBtn);
 
         setModalityType(ModalityType.APPLICATION_MODAL);
 
@@ -51,8 +51,8 @@ class AboutDialog extends JDialog {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -99,19 +99,19 @@ public class CustomDialogEx extends JFrame
 
     private void createMenuBar() {
 
-        JMenuBar menubar = new JMenuBar();
+        var menubar = new JMenuBar();
 
-        JMenu fileMenu = new JMenu("File");
+        var fileMenu = new JMenu("File");
         fileMenu.setMnemonic(KeyEvent.VK_F);
 
-        JMenu helpMenu = new JMenu("Help");
+        var helpMenu = new JMenu("Help");
         helpMenu.setMnemonic(KeyEvent.VK_H);
 
-        JMenuItem aboutMi = new JMenuItem("About");
-        aboutMi.setMnemonic(KeyEvent.VK_A);
-        helpMenu.add(aboutMi);
+        var aboutMemuItem = new JMenuItem("About");
+        aboutMemuItem.setMnemonic(KeyEvent.VK_A);
+        helpMenu.add(aboutMemuItem);
 
-        aboutMi.addActionListener(this);
+        aboutMemuItem.addActionListener(this);
 
         menubar.add(fileMenu);
         menubar.add(Box.createGlue());
@@ -127,14 +127,15 @@ public class CustomDialogEx extends JFrame
 
     private void showAboutDialog() {
 
-        AboutDialog ad = new AboutDialog(this);
-        ad.setVisible(true);
+        var aboutDialog = new AboutDialog(this);
+        aboutDialog.setVisible(true);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            CustomDialogEx cdx = new CustomDialogEx();
+
+            var cdx = new CustomDialogEx();
             cdx.setVisible(true);
         });
     }
