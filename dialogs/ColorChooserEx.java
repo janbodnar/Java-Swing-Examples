@@ -9,7 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.EventQueue;
 
 import static javax.swing.GroupLayout.DEFAULT_SIZE;
@@ -28,7 +27,7 @@ public class ColorChooserEx extends JFrame {
         colourPanel = new JPanel();
         colourPanel.setBackground(Color.WHITE);
 
-        JToolBar toolbar = createToolBar();
+        var toolbar = createToolBar();
 
         createLayout(toolbar, colourPanel);
 
@@ -40,26 +39,27 @@ public class ColorChooserEx extends JFrame {
 
     private JToolBar createToolBar() {
 
-        ImageIcon open = new ImageIcon("src/main/resources/colourdlg.png");
+        var openIcon = new ImageIcon("src/resources/colourdlg.png");
 
-        JToolBar toolbar = new JToolBar();
-        JButton openb = new JButton(open);
+        var toolbar = new JToolBar();
+        var openBtn = new JButton(openIcon);
 
-        openb.addActionListener(e -> {
-            Color color = JColorChooser.showDialog(colourPanel,
+        openBtn.addActionListener(e -> {
+
+            var color = JColorChooser.showDialog(colourPanel,
                     "Choose colour", Color.white);
             colourPanel.setBackground(color);
         });
 
-        toolbar.add(openb);
+        toolbar.add(openBtn);
 
         return toolbar;
     }
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setHorizontalGroup(gl.createParallelGroup()
@@ -84,8 +84,9 @@ public class ColorChooserEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ColorChooserEx ccd = new ColorChooserEx();
-            ccd.setVisible(true);
+
+            var ex = new ColorChooserEx();
+            ex.setVisible(true);
         });
     }
 }
