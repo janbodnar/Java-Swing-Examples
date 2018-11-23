@@ -6,10 +6,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import java.awt.Container;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import static javax.swing.GroupLayout.DEFAULT_SIZE;
 
@@ -26,10 +23,10 @@ public class MessageDialogsEx extends JFrame {
 
         pnl = (JPanel) getContentPane();
 
-        JButton warBtn = new JButton("Warning");
-        JButton errBtn = new JButton("Error");
-        JButton queBtn = new JButton("Question");
-        JButton infBtn = new JButton("Information");
+        var warBtn = new JButton("Warning");
+        var errBtn = new JButton("Error");
+        var queBtn = new JButton("Question");
+        var infBtn = new JButton("Information");
 
         warBtn.addActionListener(event -> JOptionPane.showMessageDialog(pnl,
                 "A deprecated call!", "Warning", JOptionPane.WARNING_MESSAGE));
@@ -53,8 +50,8 @@ public class MessageDialogsEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateGaps(true);
@@ -89,7 +86,8 @@ public class MessageDialogsEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            MessageDialogsEx md = new MessageDialogsEx();
+
+            var md = new MessageDialogsEx();
             md.setVisible(true);
         });
     }
