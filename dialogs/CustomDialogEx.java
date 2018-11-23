@@ -135,8 +135,8 @@ public class CustomDialogEx extends JFrame
 
         EventQueue.invokeLater(() -> {
 
-            var cdx = new CustomDialogEx();
-            cdx.setVisible(true);
+            var ex = new CustomDialogEx();
+            ex.setVisible(true);
         });
     }
 }
