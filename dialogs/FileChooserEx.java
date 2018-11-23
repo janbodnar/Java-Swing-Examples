@@ -12,9 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -37,13 +35,12 @@ public class FileChooserEx extends JFrame {
     private void initUI() {
 
         panel = (JPanel) getContentPane();
-
         area = new JTextArea();
 
-        JScrollPane spane = new JScrollPane();
+        var spane = new JScrollPane();
         spane.getViewport().add(area);
 
-        JToolBar toolbar = createToolBar();
+        var toolbar = createToolBar();
 
         createLayout(toolbar, spane);
 
@@ -55,22 +52,22 @@ public class FileChooserEx extends JFrame {
 
     private JToolBar createToolBar() {
 
-        ImageIcon open = new ImageIcon("src/main/resources/document-open.png");
+        var openIcon = new ImageIcon("src/resources/document-open.png");
 
-        JToolBar toolbar = new JToolBar();
-        JButton openb = new JButton(open);
+        var toolbar = new JToolBar();
+        var openBtn = new JButton(openIcon);
 
-        openb.addActionListener(new OpenFileAction());
+        openBtn.addActionListener(new OpenFileAction());
 
-        toolbar.add(openb);
+        toolbar.add(openBtn);
 
         return toolbar;
     }
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setHorizontalGroup(gl.createParallelGroup()
@@ -109,16 +106,17 @@ public class FileChooserEx extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            JFileChooser fdia = new JFileChooser();
-            FileFilter filter = new FileNameExtensionFilter("Java files",
-                    "java");
-            fdia.addChoosableFileFilter(filter);
+            var fileChooser = new JFileChooser();
+            var filter = new FileNameExtensionFilter("Java files", "java");
+            fileChooser.addChoosableFileFilter(filter);
 
-            int ret = fdia.showDialog(panel, "Open file");
+            int ret = fileChooser.showDialog(panel, "Open file");
 
             if (ret == JFileChooser.APPROVE_OPTION) {
-                File file = fdia.getSelectedFile();
-                String text = readFile(file);
+
+                var file = fileChooser.getSelectedFile();
+                var text = readFile(file);
+
                 area.setText(text);
             }
         }
@@ -127,8 +125,9 @@ public class FileChooserEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            FileChooserEx fcd = new FileChooserEx();
-            fcd.setVisible(true);
+
+            var ex = new FileChooserEx();
+            ex.setVisible(true);
         });
     }
 }
