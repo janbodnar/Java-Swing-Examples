@@ -9,7 +9,6 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -18,8 +17,8 @@ import static javax.swing.GroupLayout.Alignment.CENTER;
 
 public class ListModelsEx extends JFrame {
 
-    private DefaultListModel model;
-    private JList list;
+    private DefaultListModel<String> model;
+    private JList<String> myList;
     private JButton remAllBtn;
     private JButton addBtn;
     private JButton renBtn;
@@ -32,26 +31,27 @@ public class ListModelsEx extends JFrame {
 
     private void createList() {
 
-        model = new DefaultListModel();
+        model = new DefaultListModel<>();
         model.addElement("Amelie");
         model.addElement("Aguirre, der Zorn Gottes");
         model.addElement("Fargo");
         model.addElement("Exorcist");
-        model.addElement("Schindler's list");
+        model.addElement("Schindler's myList");
 
-        list = new JList(model);
-        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        myList = new JList<>(model);
+        myList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        list.addMouseListener(new MouseAdapter() {
+        myList.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
 
                 if (e.getClickCount() == 2) {
 
-                    int index = list.locationToIndex(e.getPoint());
-                    Object item = model.getElementAt(index);
-                    String text = JOptionPane.showInputDialog("Rename item", item);
+                    int index = myList.locationToIndex(e.getPoint());
+                    var item = model.getElementAt(index);
+                    var text = JOptionPane.showInputDialog("Rename item", item);
+
                     String newItem;
 
                     if (text != null) {
@@ -64,7 +64,8 @@ public class ListModelsEx extends JFrame {
 
                         model.remove(index);
                         model.add(index, newItem);
-                        ListSelectionModel selModel = list.getSelectionModel();
+
+                        var selModel = myList.getSelectionModel();
                         selModel.setLeadSelectionIndex(index);
                     }
                 }
@@ -81,7 +82,7 @@ public class ListModelsEx extends JFrame {
 
         addBtn.addActionListener(e -> {
 
-            String text = JOptionPane.showInputDialog("Add a new item");
+            var text = JOptionPane.showInputDialog("Add a new item");
             String item;
 
             if (text != null) {
@@ -98,7 +99,8 @@ public class ListModelsEx extends JFrame {
 
         delBtn.addActionListener(event -> {
 
-            ListSelectionModel selModel = list.getSelectionModel();
+            var selModel = myList.getSelectionModel();
+
             int index = selModel.getMinSelectionIndex();
 
             if (index >= 0) {
@@ -108,14 +110,15 @@ public class ListModelsEx extends JFrame {
 
         renBtn.addActionListener(e -> {
 
-            ListSelectionModel selModel = list.getSelectionModel();
+            var selModel = myList.getSelectionModel();
             int index = selModel.getMinSelectionIndex();
+
             if (index == -1) {
                 return;
             }
 
-            Object item = model.getElementAt(index);
-            String text = JOptionPane.showInputDialog("Rename item", item);
+            var item = model.getElementAt(index);
+            var text = JOptionPane.showInputDialog("Rename item", item);
             String newItem;
 
             if (text != null) {
@@ -139,7 +142,7 @@ public class ListModelsEx extends JFrame {
         createList();
         createButtons();
 
-        JScrollPane scrollPane = new JScrollPane(list);
+        var scrollPane = new JScrollPane(myList);
         createLayout(scrollPane, addBtn, renBtn, delBtn, remAllBtn);
 
         setTitle("JList models");
@@ -149,8 +152,8 @@ public class ListModelsEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -182,7 +185,8 @@ public class ListModelsEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ListModelsEx ex = new ListModelsEx();
+
+            var ex = new ListModelsEx();
             ex.setVisible(true);
         });
     }
