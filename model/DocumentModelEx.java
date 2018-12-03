@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JToolBar;
-import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.BorderLayout;
@@ -28,7 +27,7 @@ public class DocumentModelEx extends JFrame {
 
         createToolbar();
 
-        JPanel panel =  new JPanel(new BorderLayout());
+        var panel =  new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
         textPane = new JTextPane();
@@ -46,17 +45,17 @@ public class DocumentModelEx extends JFrame {
 
     private void createToolbar() {
 
-        JToolBar toolbar = new JToolBar();
+        var toolbar = new JToolBar();
 
-        ImageIcon bold = new ImageIcon("src/main/resources/bold.png");
-        ImageIcon italic = new ImageIcon("src/main/resources/italic.png");
-        ImageIcon strike = new ImageIcon("src/main/resources/strike.png");
-        ImageIcon underline = new ImageIcon("src/main/resources/underline.png");
+        var bold = new ImageIcon("src/main/resources/bold.png");
+        var italic = new ImageIcon("src/main/resources/italic.png");
+        var strike = new ImageIcon("src/main/resources/strike.png");
+        var underline = new ImageIcon("src/main/resources/underline.png");
 
-        JButton boldBtn = new JButton(bold);
-        JButton italBtn = new JButton(italic);
-        JButton striBtn = new JButton(strike);
-        JButton undeBtn = new JButton(underline);
+        var boldBtn = new JButton(bold);
+        var italBtn = new JButton(italic);
+        var striBtn = new JButton(strike);
+        var undeBtn = new JButton(underline);
 
         toolbar.add(boldBtn);
         toolbar.add(italBtn);
@@ -88,7 +87,7 @@ public class DocumentModelEx extends JFrame {
 
     private void initStyles(JTextPane textPane) {
 
-        Style style = textPane.addStyle("Bold", null);
+        var style = textPane.addStyle("Bold", null);
         StyleConstants.setBold(style, true);
 
         style = textPane.addStyle("Italic", null);
@@ -104,7 +103,8 @@ public class DocumentModelEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            DocumentModelEx ex = new DocumentModelEx();
+
+            var ex = new DocumentModelEx();
             ex.setVisible(true);
         });
     }
