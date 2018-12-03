@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 
@@ -47,8 +46,8 @@ public class ButtonModelEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
 
@@ -85,7 +84,7 @@ public class ButtonModelEx extends JFrame {
         @Override
         public void stateChanged(ChangeEvent e) {
 
-            DefaultButtonModel model = (DefaultButtonModel) okBtn.getModel();
+            var model = (DefaultButtonModel) okBtn.getModel();
 
             if (model.isEnabled()) {
                 enabledLbl.setText("Enabled: true");
@@ -115,7 +114,7 @@ public class ButtonModelEx extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            
+
             if (okBtn.isEnabled()) {
                 okBtn.setEnabled(false);
             } else {
@@ -127,7 +126,8 @@ public class ButtonModelEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            ButtonModelEx ex = new ButtonModelEx();
+
+            var ex = new ButtonModelEx();
             ex.setVisible(true);
         });
     }
