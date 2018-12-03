@@ -1,7 +1,6 @@
 package com.zetcode;
 
 import javax.swing.AbstractAction;
-import javax.swing.ButtonModel;
 import javax.swing.DefaultButtonModel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -9,7 +8,6 @@ import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 
@@ -28,10 +26,6 @@ public class CustomButtonModelEx extends JFrame {
 
     private void initUI() {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
-        pane.setLayout(gl);
-
         okBtn = new JButton("OK");
         checkBox = new JCheckBox();
         checkBox.setAction(new CheckBoxAction());
@@ -40,7 +34,7 @@ public class CustomButtonModelEx extends JFrame {
         pressedLbl = new JLabel("Pressed: false");
         armedLbl  = new JLabel("Armed: false");
 
-        ButtonModel model = new OkButtonModel();
+        var model = new OkButtonModel();
         okBtn.setModel(model);
 
         createLayout(okBtn, checkBox, enabledLbl, pressedLbl, armedLbl);
@@ -52,8 +46,8 @@ public class CustomButtonModelEx extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -139,8 +133,10 @@ public class CustomButtonModelEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            CustomButtonModelEx ex = new CustomButtonModelEx();
+
+            var ex = new CustomButtonModelEx();
             ex.setVisible(true);
         });
     }
 }
+
