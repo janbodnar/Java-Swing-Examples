@@ -6,16 +6,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.TransferHandler;
-import java.awt.Container;
 import java.awt.EventQueue;
-
-/*
-Java Swing tutorial
-Simple text drag and drop example
-
-Author: Jan Bodnar
-Website: http://zetcode.com
-*/
 
 public class SimpleDnD extends JFrame {
 
@@ -28,7 +19,9 @@ public class SimpleDnD extends JFrame {
     }
 
     private void initUI() {
-      
+
+        setTitle("Simple Drag & Drop");
+
         button = new JButton("Button");
         field = new JTextField(15);
 
@@ -37,15 +30,14 @@ public class SimpleDnD extends JFrame {
 
         createLayout(field, button);
 
-        setTitle("Simple Drag & Drop");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);        
+        setLocationRelativeTo(null);
     }
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -68,7 +60,7 @@ public class SimpleDnD extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            SimpleDnD ex = new SimpleDnD();
+            var ex = new SimpleDnD();
             ex.setVisible(true);
         });
     }
