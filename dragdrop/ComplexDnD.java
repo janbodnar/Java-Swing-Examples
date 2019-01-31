@@ -7,7 +7,6 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -22,14 +21,6 @@ import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDropEvent;
 
-/*
-Java Swing tutorial
-Complex drag and drop example
-
-Author: Jan Bodnar
-Website: http://zetcode.com
- */
-
 public class ComplexDnD extends JFrame
         implements DragGestureListener {
 
@@ -42,7 +33,7 @@ public class ComplexDnD extends JFrame
 
     private void initUI() {
 
-        JButton colourBtn = new JButton("Choose Color");
+        var colourBtn = new JButton("Choose Color");
         colourBtn.setFocusable(false);
 
         leftPanel = new JPanel();
@@ -51,17 +42,17 @@ public class ComplexDnD extends JFrame
 
         colourBtn.addActionListener(event -> {
 
-            Color color = JColorChooser.showDialog(this, "Choose Color", Color.white);
+            var color = JColorChooser.showDialog(this, "Choose Color", Color.white);
             leftPanel.setBackground(color);
         });
 
-        JPanel rightPanel = new JPanel();
+        var rightPanel = new JPanel();
         rightPanel.setBackground(Color.white);
         rightPanel.setPreferredSize(new Dimension(100, 100));
 
-        MyDropTargetListener mtl = new MyDropTargetListener(rightPanel);
+        var mtl = new MyDropTargetListener(rightPanel);
 
-        DragSource ds = new DragSource();
+        var ds = new DragSource();
         ds.createDefaultDragGestureRecognizer(leftPanel,
                 DnDConstants.ACTION_COPY, this);
 
@@ -74,10 +65,10 @@ public class ComplexDnD extends JFrame
 
     public void dragGestureRecognized(DragGestureEvent event) {
 
-        Cursor cursor = null;
-        JPanel panel = (JPanel) event.getComponent();
+        var cursor = Cursor.getDefaultCursor();
+        var panel = (JPanel) event.getComponent();
 
-        Color color = panel.getBackground();
+        var color = panel.getBackground();
 
         if (event.getDragAction() == DnDConstants.ACTION_COPY) {
             cursor = DragSource.DefaultCopyDrop;
@@ -103,8 +94,8 @@ public class ComplexDnD extends JFrame
 
             try {
 
-                Transferable tr = event.getTransferable();
-                Color col = (Color) tr.getTransferData(TransferableColor.colorFlavor);
+                var tr = event.getTransferable();
+                var col = (Color) tr.getTransferData(TransferableColor.colorFlavor);
 
                 if (event.isDataFlavorSupported(TransferableColor.colorFlavor)) {
 
@@ -125,8 +116,8 @@ public class ComplexDnD extends JFrame
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -153,7 +144,7 @@ public class ComplexDnD extends JFrame
 
         EventQueue.invokeLater(() -> {
 
-            ComplexDnD ex = new ComplexDnD();
+            var ex = new ComplexDnD();
             ex.setVisible(true);
         });
     }
