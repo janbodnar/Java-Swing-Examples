@@ -7,19 +7,9 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.TransferHandler;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-/*
-Java Swing tutorial
-Drag and drop icons
-
-Author: Jan Bodnar
-Website: http://zetcode.com
- */
 
 public class IconDnD extends JFrame {
 
@@ -31,20 +21,20 @@ public class IconDnD extends JFrame {
 
     private void initUI() {
 
-        ImageIcon icon1 = new ImageIcon("src/main/resources/sad.png");
-        ImageIcon icon2 = new ImageIcon("src/main/resources/plain.png");
-        ImageIcon icon3 = new ImageIcon("src/main/resources/smile.png");
+        var icon1 = new ImageIcon("src/resources/sad.png");
+        var icon2 = new ImageIcon("src/resources/plain.png");
+        var icon3 = new ImageIcon("src/resources/smile.png");
 
-        JLabel label1 = new JLabel(icon1, JLabel.CENTER);
-        JLabel label2 = new JLabel(icon2, JLabel.CENTER);
-        JLabel label3 = new JLabel(icon3, JLabel.CENTER);
+        var label1 = new JLabel(icon1, JLabel.CENTER);
+        var label2 = new JLabel(icon2, JLabel.CENTER);
+        var label3 = new JLabel(icon3, JLabel.CENTER);
 
-        MouseListener listener = new DragMouseAdapter();
+        var listener = new DragMouseAdapter();
         label1.addMouseListener(listener);
         label2.addMouseListener(listener);
         label3.addMouseListener(listener);
 
-        JButton button = new JButton(icon2);
+        var button = new JButton(icon2);
         button.setFocusable(false);
 
         label1.setTransferHandler(new TransferHandler("icon"));
@@ -63,16 +53,16 @@ public class IconDnD extends JFrame {
 
         public void mousePressed(MouseEvent e) {
 
-            JComponent c = (JComponent) e.getSource();
-            TransferHandler handler = c.getTransferHandler();
+            var c = (JComponent) e.getSource();
+            var handler = c.getTransferHandler();
             handler.exportAsDrag(c, e, TransferHandler.COPY);
         }
     }
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -106,7 +96,7 @@ public class IconDnD extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            IconDnD ex = new IconDnD();
+            var ex = new IconDnD();
             ex.setVisible(true);
         });
     }
