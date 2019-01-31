@@ -10,19 +10,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.TransferHandler;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-
-/*
-Java Swing tutorial
-JList drag and drop example
-
-Author: Jan Bodnar
-Website: http://zetcode.com
- */
 
 public class ListDnD extends JFrame {
 
@@ -36,20 +26,20 @@ public class ListDnD extends JFrame {
 
     private void initUI() {
 
-        JScrollPane scrollPane = new JScrollPane();
+        var scrollPane = new JScrollPane();
         scrollPane.setPreferredSize(new Dimension(180, 150));
 
         model = new DefaultListModel();
-        JList list = new JList(model);
+        var myList = new JList(model);
 
-        list.setDropMode(DropMode.INSERT);
-        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        list.setTransferHandler(new ListHandler());
+        myList.setDropMode(DropMode.INSERT);
+        myList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        myList.setTransferHandler(new ListHandler());
 
         field = new JTextField(15);
         field.setDragEnabled(true);
 
-        scrollPane.getViewport().add(list);
+        scrollPane.getViewport().add(myList);
 
         createLayout(field, scrollPane);
 
@@ -75,7 +65,7 @@ public class ListDnD extends JFrame {
                 return false;
             }
 
-            Transferable transferable = support.getTransferable();
+            var transferable = support.getTransferable();
             String line;
 
             try {
@@ -84,12 +74,13 @@ public class ListDnD extends JFrame {
                 return false;
             }
 
-            JList.DropLocation dl = (JList.DropLocation) support.getDropLocation();
+            var dl = (JList.DropLocation) support.getDropLocation();
             int index = dl.getIndex();
 
             String[] data = line.split("[,\\s]");
 
             for (String item : data) {
+
                 if (!item.isEmpty())
                     model.add(index++, item.trim());
             }
@@ -100,8 +91,8 @@ public class ListDnD extends JFrame {
 
     private void createLayout(JComponent... arg) {
 
-        Container pane = getContentPane();
-        GroupLayout gl = new GroupLayout(pane);
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
@@ -121,10 +112,9 @@ public class ListDnD extends JFrame {
     }
 
     public static void main(String[] args) {
-    
         EventQueue.invokeLater(() -> {
 
-            ListDnD ex = new ListDnD();
+            var ex = new ListDnD();
             ex.setVisible(true);
         });
     }
