@@ -1,32 +1,30 @@
 package com.zetcode;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Insets;
 import java.util.Random;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 class DrawPanel extends JPanel {
 
     private void doDrawing(Graphics g) {
 
-        Graphics2D g2d = (Graphics2D) g;
+        var g2d = (Graphics2D) g;
 
         g2d.setColor(Color.blue);
 
         for (int i = 0; i <= 1000; i++) {
 
-            Dimension size = getSize();
-            Insets insets = getInsets();
+            var size = getSize();
+            var insets = getInsets();
 
             int w = size.width - insets.left - insets.right;
             int h = size.height - insets.top - insets.bottom;
 
-            Random r = new Random();
+            var r = new Random();
             int x = Math.abs(r.nextInt()) % w;
             int y = Math.abs(r.nextInt()) % h;
             g2d.drawLine(x, y, x, y);
@@ -50,7 +48,7 @@ public class PointsEx extends JFrame {
 
     private void initUI() {
 
-        DrawPanel drawPanel = new DrawPanel();
+        var drawPanel = new DrawPanel();
         add(drawPanel);
 
         setSize(350, 250);
@@ -62,7 +60,8 @@ public class PointsEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            PointsEx ex = new PointsEx();
+
+            var ex = new PointsEx();
             ex.setVisible(true);
         });
     }
