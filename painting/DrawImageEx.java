@@ -21,18 +21,18 @@ class DrawPanel extends JPanel {
     private void initPanel() {
 
         loadImage();
-        Dimension dm = new Dimension(myImage.getWidth(null), myImage.getHeight(null));
+        var dm = new Dimension(myImage.getWidth(null), myImage.getHeight(null));
         setPreferredSize(dm);
     }
 
     private void loadImage() {
 
-        myImage = new ImageIcon("src/main/resources/icesid.jpg").getImage();
+        myImage = new ImageIcon("src/resources/icesid.jpg").getImage();
     }
 
     private void doDrawing(Graphics g) {
 
-        Graphics2D g2d = (Graphics2D) g;
+        var g2d = (Graphics2D) g;
 
         g2d.drawImage(myImage, 0, 0, null);
     }
@@ -54,7 +54,7 @@ public class DrawImageEx extends JFrame {
 
     private void initUI() {
 
-        DrawPanel drawPanel = new DrawPanel();
+        var drawPanel = new DrawPanel();
         add(drawPanel);
 
         setTitle("Image");
@@ -66,7 +66,8 @@ public class DrawImageEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            DrawImageEx ex = new DrawImageEx();
+
+            var ex = new DrawImageEx();
             ex.setVisible(true);
         });
     }
