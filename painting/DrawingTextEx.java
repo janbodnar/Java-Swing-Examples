@@ -12,9 +12,9 @@ class DrawPanel extends JPanel {
 
     private void doDrawing(Graphics g) {
 
-        Graphics2D g2d = (Graphics2D) g;
+        var g2d = (Graphics2D) g;
 
-        RenderingHints rh = new RenderingHints(
+        var rh = new RenderingHints(
                 RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
 
@@ -23,7 +23,7 @@ class DrawPanel extends JPanel {
 
         g2d.setRenderingHints(rh);
 
-        Font font = new Font("URW Chancery L", Font.BOLD, 21);
+        var font = new Font("URW Chancery L", Font.BOLD, 21);
         g2d.setFont(font);
 
         g2d.drawString("Not marble, nor the gilded monuments", 20, 30);
@@ -63,7 +63,7 @@ public class DrawingTextEx extends JFrame {
 
     private void initUI() {
 
-        DrawPanel drawPanel = new DrawPanel();
+        var drawPanel = new DrawPanel();
         add(drawPanel);
 
         setSize(500, 470);
@@ -75,7 +75,8 @@ public class DrawingTextEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            DrawingTextEx ex = new DrawingTextEx();
+
+            var ex = new DrawingTextEx();
             ex.setVisible(true);
         });
     }
