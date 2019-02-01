@@ -11,7 +11,7 @@ class DrawPanel extends JPanel {
 
     private void doDrawing(Graphics g) {
 
-        Graphics2D g2d = (Graphics2D) g;
+        var g2d = (Graphics2D) g;
 
         g2d.setColor(new Color(212, 212, 212));
         g2d.drawRect(10, 15, 90, 60);
@@ -69,7 +69,7 @@ public class RectanglesEx extends JFrame {
 
     private void initUI() {
 
-        DrawPanel drawPanel = new DrawPanel();
+        var drawPanel = new DrawPanel();
         add(drawPanel);
 
         setSize(360, 300);
@@ -81,7 +81,8 @@ public class RectanglesEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            RectanglesEx ex = new RectanglesEx();
+
+            var ex = new RectanglesEx();
             ex.setVisible(true);
         });
     }
