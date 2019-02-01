@@ -12,33 +12,33 @@ class DrawPanel extends JPanel {
 
     private void doDrawing(Graphics g) {
 
-        Graphics2D g2d = (Graphics2D) g;
+        var g2d = (Graphics2D) g;
 
-        GradientPaint gp1 = new GradientPaint(5, 5,
+        var gp1 = new GradientPaint(5, 5,
                 Color.red, 20, 20, Color.black, true);
 
         g2d.setPaint(gp1);
         g2d.fillRect(20, 20, 300, 40);
 
-        GradientPaint gp2 = new GradientPaint(5, 25,
+        var gp2 = new GradientPaint(5, 25,
                 Color.yellow, 20, 2, Color.black, true);
 
         g2d.setPaint(gp2);
         g2d.fillRect(20, 80, 300, 40);
 
-        GradientPaint gp3 = new GradientPaint(5, 25,
+        var gp3 = new GradientPaint(5, 25,
                 Color.green, 2, 2, Color.black, true);
 
         g2d.setPaint(gp3);
         g2d.fillRect(20, 140, 300, 40);
 
-        GradientPaint gp4 = new GradientPaint(25, 25,
+        var gp4 = new GradientPaint(25, 25,
                 Color.blue, 15, 25, Color.black, true);
 
         g2d.setPaint(gp4);
         g2d.fillRect(20, 200, 300, 40);
 
-        GradientPaint gp5 = new GradientPaint(0, 0,
+        var gp5 = new GradientPaint(0, 0,
                 Color.orange, 0, 20, Color.black, true);
 
         g2d.setPaint(gp5);
@@ -62,7 +62,7 @@ public class GradientsEx extends JFrame {
 
     private void initUI() {
 
-        DrawPanel drawPanel = new DrawPanel();
+        var drawPanel = new DrawPanel();
         add(drawPanel);
 
         setSize(350, 350);
@@ -74,7 +74,8 @@ public class GradientsEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            GradientsEx ex = new GradientsEx();
+
+            var ex = new GradientsEx();
             ex.setVisible(true);
         });
     }
