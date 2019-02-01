@@ -18,9 +18,6 @@ class DrawingPanel extends JPanel {
     private BufferedImage slate;
     private BufferedImage java;
     private BufferedImage pane;
-    private TexturePaint slatetp;
-    private TexturePaint javatp;
-    private TexturePaint panetp;
 
     public DrawingPanel() {
 
@@ -31,9 +28,9 @@ class DrawingPanel extends JPanel {
 
         try {
 
-            slate = ImageIO.read(new File("src/main/resources/slate.png"));
-            java = ImageIO.read(new File("src/main/resources/java.png"));
-            pane = ImageIO.read(new File("src/main/resources/pane.png"));
+            slate = ImageIO.read(new File("src/resources/slate.png"));
+            java = ImageIO.read(new File("src/resources/java.png"));
+            pane = ImageIO.read(new File("src/resources/pane.png"));
 
         } catch (IOException ex) {
 
@@ -45,19 +42,19 @@ class DrawingPanel extends JPanel {
 
     private void doDrawing(Graphics g) {
 
-        Graphics2D g2d = (Graphics2D) g.create();
+        var g2d = (Graphics2D) g.create();
 
-        slatetp = new TexturePaint(slate, new Rectangle(0, 0, 90, 60));
-        javatp = new TexturePaint(java, new Rectangle(0, 0, 90, 60));
-        panetp = new TexturePaint(pane, new Rectangle(0, 0, 90, 60));
+        var slateTp = new TexturePaint(slate, new Rectangle(0, 0, 90, 60));
+        var javaTp = new TexturePaint(java, new Rectangle(0, 0, 90, 60));
+        var paneTp = new TexturePaint(pane, new Rectangle(0, 0, 90, 60));
 
-        g2d.setPaint(slatetp);
+        g2d.setPaint(slateTp);
         g2d.fillRect(10, 15, 90, 60);
 
-        g2d.setPaint(javatp);
+        g2d.setPaint(javaTp);
         g2d.fillRect(130, 15, 90, 60);
 
-        g2d.setPaint(panetp);
+        g2d.setPaint(paneTp);
         g2d.fillRect(250, 15, 90, 60);
 
         g2d.dispose();
@@ -71,7 +68,7 @@ class DrawingPanel extends JPanel {
     }
 }
 
-public class TexturesEx extends JFrame {
+class TexturesEx extends JFrame {
 
     public TexturesEx() {
 
@@ -80,7 +77,7 @@ public class TexturesEx extends JFrame {
 
     private void initUI() {
 
-        DrawingPanel drawingPanel = new DrawingPanel();
+        var drawingPanel = new DrawingPanel();
         add(drawingPanel);
 
         setTitle("Textures");
@@ -92,7 +89,8 @@ public class TexturesEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            TexturesEx ex = new TexturesEx();
+
+            var ex = new TexturesEx();
             ex.setVisible(true);
         });
     }
