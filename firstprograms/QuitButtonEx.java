@@ -5,7 +5,6 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
 
 public class QuitButtonEx extends JFrame {
 
@@ -48,6 +47,7 @@ public class QuitButtonEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+            
             var ex = new QuitButtonEx();
             ex.setVisible(true);
         });
