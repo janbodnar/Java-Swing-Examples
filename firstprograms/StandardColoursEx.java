@@ -43,14 +43,14 @@ public class StandardColoursEx extends JFrame {
             labels.add(lbl);
         }
 
-        createLayout(labels.toArray(new JLabel[labels.size()]));
+        createLayout(labels.toArray(new JLabel[0]));
 
         setTitle("Standard colours");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public JLabel createColouredLabel(Color col) {
+    private JLabel createColouredLabel(Color col) {
 
         var lbl = new MyLabel();
         lbl.setMinimumSize(new Dimension(90, 40));
@@ -114,6 +114,7 @@ public class StandardColoursEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new StandardColoursEx();
             ex.setVisible(true);
         });
