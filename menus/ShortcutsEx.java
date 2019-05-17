@@ -9,6 +9,7 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 public class ShortcutsEx extends JFrame {
@@ -30,7 +31,7 @@ public class ShortcutsEx extends JFrame {
 
     private void createMenuBar() {
 
-        var menubar = new JMenuBar();
+        var menuBar = new JMenuBar();
 
         var iconNew = new ImageIcon("src/resources/new.png");
         var iconOpen = new ImageIcon("src/resources/open.png");
@@ -53,7 +54,7 @@ public class ShortcutsEx extends JFrame {
         exitMenuItem.setMnemonic(KeyEvent.VK_E);
         exitMenuItem.setToolTipText("Exit application");
         exitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,
-                ActionEvent.CTRL_MASK));
+                InputEvent.CTRL_DOWN_MASK));
 
         exitMenuItem.addActionListener((event) -> System.exit(0));
 
@@ -63,9 +64,9 @@ public class ShortcutsEx extends JFrame {
         fileMenu.addSeparator();
         fileMenu.add(exitMenuItem);
 
-        menubar.add(fileMenu);
+        menuBar.add(fileMenu);
 
-        setJMenuBar(menubar);
+        setJMenuBar(menuBar);
     }
 
     private class MenuItemAction extends AbstractAction {
@@ -88,6 +89,7 @@ public class ShortcutsEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new ShortcutsEx();
             ex.setVisible(true);
         });
