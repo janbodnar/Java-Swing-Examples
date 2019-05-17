@@ -13,7 +13,7 @@ import javax.swing.JMenuBar;
 
 public class CheckBoxMenuItemEx extends JFrame {
 
-    private JLabel statusbar;
+    private JLabel statusBar;
 
     public CheckBoxMenuItemEx() {
 
@@ -24,9 +24,9 @@ public class CheckBoxMenuItemEx extends JFrame {
 
         createMenuBar();
 
-        statusbar = new JLabel("Ready");
-        statusbar.setBorder(BorderFactory.createEtchedBorder());
-        add(statusbar, BorderLayout.SOUTH);
+        statusBar = new JLabel("Ready");
+        statusBar.setBorder(BorderFactory.createEtchedBorder());
+        add(statusBar, BorderLayout.SOUTH);
 
         setTitle("JCheckBoxMenuItem");
         setSize(360, 250);
@@ -36,7 +36,7 @@ public class CheckBoxMenuItemEx extends JFrame {
 
     private void createMenuBar() {
 
-        var menubar = new JMenuBar();
+        var menuBar = new JMenuBar();
         var fileMenu = new JMenu("File");
         fileMenu.setMnemonic(KeyEvent.VK_F);
 
@@ -50,23 +50,24 @@ public class CheckBoxMenuItemEx extends JFrame {
 
         showStatusBarMenuItem.addItemListener((e) -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
-                statusbar.setVisible(true);
+                statusBar.setVisible(true);
             } else {
-                statusbar.setVisible(false);
+                statusBar.setVisible(false);
             }
         });
 
         viewMenu.add(showStatusBarMenuItem);
 
-        menubar.add(fileMenu);
-        menubar.add(viewMenu);
+        menuBar.add(fileMenu);
+        menuBar.add(viewMenu);
 
-        setJMenuBar(menubar);
+        setJMenuBar(menuBar);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new CheckBoxMenuItemEx();
             ex.setVisible(true);
         });
