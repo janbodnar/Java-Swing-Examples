@@ -20,14 +20,14 @@ public class SimpleMenuEx extends JFrame {
         createMenuBar();
 
         setTitle("Simple menu");
-        setSize(300, 200);
+        setSize(350, 250);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     private void createMenuBar() {
 
-        var menubar = new JMenuBar();
+        var menuBar = new JMenuBar();
         var exitIcon = new ImageIcon("src/resources/exit.png");
 
         var fileMenu = new JMenu("File");
@@ -39,18 +39,17 @@ public class SimpleMenuEx extends JFrame {
         eMenuItem.addActionListener((event) -> System.exit(0));
 
         fileMenu.add(eMenuItem);
+        menuBar.add(fileMenu);
 
-        menubar.add(fileMenu);
-
-        setJMenuBar(menubar);
+        setJMenuBar(menuBar);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new SimpleMenuEx();
             ex.setVisible(true);
         });
     }
 }
-
