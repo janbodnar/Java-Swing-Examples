@@ -29,17 +29,16 @@ public class ToolbarEx extends JFrame {
 
     private void createMenuBar() {
 
-        var menubar = new JMenuBar();
+        var menuBar = new JMenuBar();
         var fileMenu = new JMenu("File");
 
-        menubar.add(fileMenu);
-        setJMenuBar(menubar);
+        menuBar.add(fileMenu);
+        setJMenuBar(menuBar);
     }
 
     private void createToolBar() {
 
         var toolbar = new JToolBar();
-
         var icon = new ImageIcon("src/resources/exit2.png");
 
         var exitButton = new JButton(icon);
@@ -53,10 +52,10 @@ public class ToolbarEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new ToolbarEx();
             ex.setVisible(true);
         });
     }
 }
-
 
