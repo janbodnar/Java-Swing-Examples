@@ -25,25 +25,26 @@ public class RightMenuEx extends JFrame {
 
     private void createMenuBar() {
 
-        var menubar = new JMenuBar();
+        var menuBar = new JMenuBar();
 
         var fileMenu = new JMenu("File");
         var viewMenu = new JMenu("View");
         var toolsMenu = new JMenu("Tools");
         var helpMenu = new JMenu("Help");
 
-        menubar.add(fileMenu);
-        menubar.add(viewMenu);
-        menubar.add(toolsMenu);
-        menubar.add(Box.createHorizontalGlue());
-        menubar.add(helpMenu);
+        menuBar.add(fileMenu);
+        menuBar.add(viewMenu);
+        menuBar.add(toolsMenu);
+        menuBar.add(Box.createHorizontalGlue());
+        menuBar.add(helpMenu);
 
-        setJMenuBar(menubar);
+        setJMenuBar(menuBar);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new RightMenuEx();
             ex.setVisible(true);
         });
