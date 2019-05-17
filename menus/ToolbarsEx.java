@@ -15,7 +15,7 @@ public class ToolbarsEx extends JFrame {
         initUI();
     }
 
-    public final void initUI() {
+    private void initUI() {
 
         createToolBars();
 
@@ -43,7 +43,7 @@ public class ToolbarsEx extends JFrame {
         toolbar1.add(openBtn);
         toolbar1.add(saveBtn);
 
-        JButton exitBtn = new JButton(exitIcon);
+        var exitBtn = new JButton(exitIcon);
         toolbar2.add(exitBtn);
 
         exitBtn.addActionListener((e) -> System.exit(0));
@@ -73,6 +73,7 @@ public class ToolbarsEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new ToolbarsEx();
             ex.setVisible(true);
         });
