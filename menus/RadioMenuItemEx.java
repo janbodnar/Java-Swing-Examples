@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 
 public class RadioMenuItemEx extends JFrame {
 
-    private JLabel statusbar;
+    private JLabel statusBar;
 
     public RadioMenuItemEx() {
 
@@ -25,9 +25,9 @@ public class RadioMenuItemEx extends JFrame {
 
         createMenuBar();
 
-        statusbar = new JLabel("Easy");
-        statusbar.setBorder(BorderFactory.createEtchedBorder());
-        add(statusbar, BorderLayout.SOUTH);
+        statusBar = new JLabel("Easy");
+        statusBar.setBorder(BorderFactory.createEtchedBorder());
+        add(statusBar, BorderLayout.SOUTH);
 
         setTitle("JRadioButtonMenuItem");
         setSize(360, 250);
@@ -37,7 +37,7 @@ public class RadioMenuItemEx extends JFrame {
 
     private void createMenuBar() {
 
-        var menubar = new JMenuBar();
+        var menuBar = new JMenuBar();
         var difMenu = new JMenu("Difficulty");
         difMenu.setMnemonic(KeyEvent.VK_F);
 
@@ -49,7 +49,7 @@ public class RadioMenuItemEx extends JFrame {
 
         easyRMenuItem.addItemListener((e) -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
-                statusbar.setText("Easy");
+                statusBar.setText("Easy");
             }
         });
 
@@ -58,7 +58,7 @@ public class RadioMenuItemEx extends JFrame {
 
         mediumRMenuItem.addItemListener((e) -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
-                statusbar.setText("Medium");
+                statusBar.setText("Medium");
             }
         });
 
@@ -67,7 +67,7 @@ public class RadioMenuItemEx extends JFrame {
 
         hardRMenuItem.addItemListener((e) -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
-                statusbar.setText("Hard");
+                statusBar.setText("Hard");
             }
         });
 
@@ -75,14 +75,15 @@ public class RadioMenuItemEx extends JFrame {
         difGroup.add(mediumRMenuItem);
         difGroup.add(hardRMenuItem);
 
-        menubar.add(difMenu);
+        menuBar.add(difMenu);
 
-        setJMenuBar(menubar);
+        setJMenuBar(menuBar);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new RadioMenuItemEx();
             ex.setVisible(true);
         });
