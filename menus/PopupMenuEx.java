@@ -64,9 +64,9 @@ public class PopupMenuEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new PopupMenuEx();
             ex.setVisible(true);
         });
     }
 }
-
