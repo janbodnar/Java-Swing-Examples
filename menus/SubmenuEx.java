@@ -26,7 +26,7 @@ public class SubmenuEx extends JFrame {
 
     private void createMenuBar() {
 
-        var menubar = new JMenuBar();
+        var menuBar = new JMenuBar();
 
         var iconNew = new ImageIcon("src/resources/new.png");
         var iconOpen = new ImageIcon("src/resources/open.png");
@@ -61,14 +61,15 @@ public class SubmenuEx extends JFrame {
         fileMenu.addSeparator();
         fileMenu.add(exitMenuItem);
 
-        menubar.add(fileMenu);
+        menuBar.add(fileMenu);
 
-        setJMenuBar(menubar);
+        setJMenuBar(menuBar);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
+
             var ex = new SubmenuEx();
             ex.setVisible(true);
         });
