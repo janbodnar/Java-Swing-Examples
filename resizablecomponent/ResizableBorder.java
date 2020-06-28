@@ -76,7 +76,7 @@ public class ResizableBorder implements Border {
             case SwingConstants.NORTH_EAST -> new Rectangle(x + w - dist, y, dist, dist);
             case SwingConstants.SOUTH_WEST -> new Rectangle(x, y + h - dist, dist, dist);
             case SwingConstants.SOUTH_EAST -> new Rectangle(x + w - dist, y + h - dist, dist, dist);
-            default -> null;
+            default -> new Rectangle();
         };
     }
 
