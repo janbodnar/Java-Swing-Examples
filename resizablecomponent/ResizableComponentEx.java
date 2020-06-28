@@ -1,11 +1,11 @@
 package com.zetcode;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class ResizableComponentEx extends JFrame {
 
@@ -37,7 +37,7 @@ public class ResizableComponentEx extends JFrame {
             }
         });
 
-        setSize(350, 300);
+        setSize(550, 400);
         setTitle("Resizable component");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
