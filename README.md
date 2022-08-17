@@ -3,7 +3,7 @@ Java Swing code examples from Java Swing tutorial
 
 Built with OpenJDK 13
 
-http://zetcode.com/javaswing/
+https://zetcode.com/javaswing/
 
 ### Advanced Java Swing e-book 
-http://zetcode.com/ebooks/advancedjavaswing/
+https://zetcode.com/ebooks/advancedjavaswing/
