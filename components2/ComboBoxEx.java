@@ -45,7 +45,7 @@ class ComboBoxEx(title: String) : JFrame(), ItemListener {
     override fun itemStateChanged(e: ItemEvent) {
 
         if (e.stateChange == ItemEvent.SELECTED) {
-            display.text = e.item.toString();
+            display.text = e.item.toString()
         }
     }
 
