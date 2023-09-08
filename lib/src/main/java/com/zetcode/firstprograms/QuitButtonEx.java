@@ -1,29 +1,28 @@
-package com.zetcode;
+package com.zetcode.firstprograms;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import java.awt.EventQueue;
-import java.awt.event.KeyEvent;
 
-public class MnemonicEx extends JFrame {
+public class QuitButtonEx extends JFrame {
 
-    public MnemonicEx() {
+    public QuitButtonEx() {
 
         initUI();
     }
 
     private void initUI() {
 
-        var btn = new JButton("Button");
-        btn.addActionListener(_ -> System.out.println("Button pressed"));
+        var quitButton = new JButton("Quit");
 
-        btn.setMnemonic(KeyEvent.VK_B);
+        quitButton.addActionListener(_ -> System.exit(0));
 
-        createLayout(btn);
+        createLayout(quitButton);
 
-        setTitle("Mnemonics");
+        setTitle("Quit button");
+        setSize(300, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -38,21 +37,18 @@ public class MnemonicEx extends JFrame {
 
         gl.setHorizontalGroup(gl.createSequentialGroup()
                 .addComponent(arg[0])
-                .addGap(200)
         );
 
-        gl.setVerticalGroup(gl.createParallelGroup()
+        gl.setVerticalGroup(gl.createSequentialGroup()
                 .addComponent(arg[0])
-                .addGap(200)
         );
-
-        pack();
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            var ex = new MnemonicEx();
+            
+            var ex = new QuitButtonEx();
             ex.setVisible(true);
         });
     }

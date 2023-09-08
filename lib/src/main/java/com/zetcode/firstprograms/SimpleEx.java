@@ -1,23 +1,18 @@
-package com.zetcode;
+package com.zetcode.firstprograms;
 
 import java.awt.EventQueue;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-public class FrameIconEx extends JFrame {
+public class SimpleEx extends JFrame {
 
-    public FrameIconEx() {
+    public SimpleEx() {
 
         initUI();
     }
 
     private void initUI() {
-
-        var webIcon = new ImageIcon("src/resources/web.png");
-
-        setIconImage(webIcon.getImage());
-
-        setTitle("Icon");
+        
+        setTitle("Simple example");
         setSize(300, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -26,7 +21,7 @@ public class FrameIconEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            var ex = new FrameIconEx();
+            var ex = new SimpleEx();
             ex.setVisible(true);
         });
     }

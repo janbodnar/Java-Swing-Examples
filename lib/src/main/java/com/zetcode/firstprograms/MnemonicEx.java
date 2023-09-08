@@ -1,15 +1,15 @@
-package com.zetcode;
+package com.zetcode.firstprograms;
 
-import java.awt.EventQueue;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.EventQueue;
+import java.awt.event.KeyEvent;
 
-public class TooltipEx extends JFrame {
+public class MnemonicEx extends JFrame {
 
-    public TooltipEx() {
+    public MnemonicEx() {
 
         initUI();
     }
@@ -17,22 +17,22 @@ public class TooltipEx extends JFrame {
     private void initUI() {
 
         var btn = new JButton("Button");
-        btn.setToolTipText("A button component");
+        btn.addActionListener(_ -> System.out.println("Button pressed"));
+
+        btn.setMnemonic(KeyEvent.VK_B);
 
         createLayout(btn);
 
-        setTitle("Tooltip");
+        setTitle("Mnemonics");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     private void createLayout(JComponent... arg) {
 
-        var pane = (JPanel) getContentPane();
+        var pane = getContentPane();
         var gl = new GroupLayout(pane);
         pane.setLayout(gl);
-
-        pane.setToolTipText("Content pane");
 
         gl.setAutoCreateContainerGaps(true);
 
@@ -41,9 +41,9 @@ public class TooltipEx extends JFrame {
                 .addGap(200)
         );
 
-        gl.setVerticalGroup(gl.createSequentialGroup()
+        gl.setVerticalGroup(gl.createParallelGroup()
                 .addComponent(arg[0])
-                .addGap(120)
+                .addGap(200)
         );
 
         pack();
@@ -52,7 +52,7 @@ public class TooltipEx extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            var ex = new TooltipEx();
+            var ex = new MnemonicEx();
             ex.setVisible(true);
         });
     }
