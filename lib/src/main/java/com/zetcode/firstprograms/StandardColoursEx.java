@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.firstprograms;
 
 import javax.swing.GroupLayout;
 import javax.swing.JFrame;
