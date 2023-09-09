@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.painting;
 
 import java.awt.Color;
 import java.awt.EventQueue;

@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.painting;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
