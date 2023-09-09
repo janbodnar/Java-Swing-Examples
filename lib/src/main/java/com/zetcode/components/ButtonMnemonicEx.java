@@ -1,31 +1,31 @@
-package com.zetcode;
+package com.zetcode.components;
 
 import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
-public class ImageIconButtonEx extends JFrame {
+public class ButtonMnemonicEx extends JFrame implements ActionListener {
 
-    public ImageIconButtonEx() {
+    public ButtonMnemonicEx() {
 
         initUI();
     }
 
     private void initUI() {
 
-        var saveIcon = new ImageIcon("src/resources/save.png");
-        var homeIcon = new ImageIcon("src/resources/home.png");
+        var showBtn = new JButton("Show");
+        showBtn.addActionListener(this);
+        showBtn.setMnemonic(KeyEvent.VK_S);
 
-        var quitBtn = new JButton("Quit");
-        var saveBtn = new JButton(saveIcon);
-        var homeBtn = new JButton("Home", homeIcon);
+        createLayout(showBtn);
 
-        createLayout(quitBtn, saveBtn, homeBtn);
-
-        setTitle("JButtons");
+        setTitle("JButton");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -41,26 +41,29 @@ public class ImageIconButtonEx extends JFrame {
 
         gl.setHorizontalGroup(gl.createSequentialGroup()
                 .addComponent(arg[0])
-                .addComponent(arg[1])
-                .addComponent(arg[2])
+                .addGap(250)
         );
 
         gl.setVerticalGroup(gl.createParallelGroup()
                 .addComponent(arg[0])
-                .addComponent(arg[1])
-                .addComponent(arg[2])
+                .addGap(150)
         );
 
-        gl.linkSize(arg[0], arg[1], arg[2]);
-
         pack();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        JOptionPane.showMessageDialog(this, "Button clicked",
+                "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
 
-            var ex = new ImageIconButtonEx();
+            var ex = new ButtonMnemonicEx();
             ex.setVisible(true);
         });
     }

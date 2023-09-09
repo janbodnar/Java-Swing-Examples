@@ -1,29 +1,31 @@
-package com.zetcode;
+package com.zetcode.components;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.EventQueue;
 
-public class LabelEx2 extends JFrame {
+public class ImageIconButtonEx extends JFrame {
 
-    public LabelEx2() {
+    public ImageIconButtonEx() {
 
         initUI();
     }
 
     private void initUI() {
 
-        var lbl1 = new JLabel(new ImageIcon("src/resources/cpu.png"));
-        var lbl2 = new JLabel(new ImageIcon("src/resources/drive.png"));
-        var lbl3 = new JLabel(new ImageIcon("src/resources/laptop.png"));
-        var lbl4 = new JLabel(new ImageIcon("src/resources/player.png"));
+        var saveIcon = new ImageIcon("src/resources/save.png");
+        var homeIcon = new ImageIcon("src/resources/home.png");
 
-        createLayout(lbl1, lbl2, lbl3, lbl4);
+        var quitBtn = new JButton("Quit");
+        var saveBtn = new JButton(saveIcon);
+        var homeBtn = new JButton("Home", homeIcon);
 
-        setTitle("Icons");
+        createLayout(quitBtn, saveBtn, homeBtn);
+
+        setTitle("JButtons");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -41,15 +43,15 @@ public class LabelEx2 extends JFrame {
                 .addComponent(arg[0])
                 .addComponent(arg[1])
                 .addComponent(arg[2])
-                .addComponent(arg[3])
         );
 
         gl.setVerticalGroup(gl.createParallelGroup()
                 .addComponent(arg[0])
                 .addComponent(arg[1])
                 .addComponent(arg[2])
-                .addComponent(arg[3])
         );
+
+        gl.linkSize(arg[0], arg[1], arg[2]);
 
         pack();
     }
@@ -58,7 +60,7 @@ public class LabelEx2 extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            var ex = new LabelEx2();
+            var ex = new ImageIconButtonEx();
             ex.setVisible(true);
         });
     }
