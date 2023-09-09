@@ -16,10 +16,10 @@ public class LabelEx2 extends JFrame {
 
     private void initUI() {
 
-        var lbl1 = new JLabel(new ImageIcon("src/resources/cpu.png"));
-        var lbl2 = new JLabel(new ImageIcon("src/resources/drive.png"));
-        var lbl3 = new JLabel(new ImageIcon("src/resources/laptop.png"));
-        var lbl4 = new JLabel(new ImageIcon("src/resources/player.png"));
+        var lbl1 = new JLabel(new ImageIcon(getClass().getResource("/cpu.png")));
+        var lbl2 = new JLabel(new ImageIcon(getClass().getResource("/drive.png")));
+        var lbl3 = new JLabel(new ImageIcon(getClass().getResource("/laptop.png")));
+        var lbl4 = new JLabel(new ImageIcon(getClass().getResource("/player.png")));
 
         createLayout(lbl1, lbl2, lbl3, lbl4);
 
