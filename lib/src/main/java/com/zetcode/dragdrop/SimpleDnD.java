@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.dragdrop;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
