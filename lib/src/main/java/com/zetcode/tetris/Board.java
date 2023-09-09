@@ -1,6 +1,6 @@
-package com.zetcode;
+package com.zetcode.tetris;
 
-import com.zetcode.Shape.Tetrominoe;
+import com.zetcode.tetris.Shape.Tetrominoe;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;

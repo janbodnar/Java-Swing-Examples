@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.tetris;
 
 import java.util.Random;
 
