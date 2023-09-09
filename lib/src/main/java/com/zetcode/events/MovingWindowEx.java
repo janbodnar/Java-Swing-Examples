@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.events;
 
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
@@ -6,32 +6,34 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
-public class AdapterEx extends JFrame {
+public class MovingWindowEx extends JFrame implements ComponentListener {
 
     private JLabel labelx;
     private JLabel labely;
 
-    public AdapterEx() {
+    public MovingWindowEx() {
 
         initUI();
     }
 
     private void initUI() {
 
-        addComponentListener(new MoveAdapter());
+        addComponentListener(this);
 
         labelx = new JLabel("x: ");
         labelx.setFont(new Font("Serif", Font.BOLD, 14));
+        labelx.setBounds(20, 20, 60, 25);
 
         labely = new JLabel("y: ");
         labely.setFont(new Font("Serif", Font.BOLD, 14));
+        labely.setBounds(20, 45, 60, 25);
 
         createLayout(labelx, labely);
 
-        setTitle("Adapter example");
+        setTitle("Moving window");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -60,25 +62,33 @@ public class AdapterEx extends JFrame {
         pack();
     }
 
-    private class MoveAdapter extends ComponentAdapter {
+    @Override
+    public void componentResized(ComponentEvent e) {
+    }
 
-        @Override
-        public void componentMoved(ComponentEvent e) {
+    @Override
+    public void componentMoved(ComponentEvent e) {
 
-            var x = e.getComponent().getX();
-            var y = e.getComponent().getY();
+        var x = e.getComponent().getX();
+        var y = e.getComponent().getY();
 
-            labelx.setText("x: " + x);
-            labely.setText("y: " + y);
-        }
+        labelx.setText("x: " + x);
+        labely.setText("y: " + y);
+    }
+
+    @Override
+    public void componentShown(ComponentEvent e) {
+    }
+
+    @Override
+    public void componentHidden(ComponentEvent e) {
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            var ex = new AdapterEx();
+            var ex = new MovingWindowEx();
             ex.setVisible(true);
         });
     }
 }
-

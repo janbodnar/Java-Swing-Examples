@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.events;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -8,23 +8,20 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InnerClassEx extends JFrame {
+public class DerivedClassEx extends JFrame {
 
-    public InnerClassEx() {
+    public DerivedClassEx() {
 
         initUI();
     }
 
     private void initUI() {
 
-        var closeBtn = new JButton("Close");
-
-        var listener = new ButtonCloseListener();
-        closeBtn.addActionListener(listener);
+        var closeBtn = new MyButton("Close");
 
         createLayout(closeBtn);
 
-        setTitle("Inner class example");
+        setTitle("Derived class");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -36,7 +33,6 @@ public class InnerClassEx extends JFrame {
         pane.setLayout(gl);
 
         gl.setAutoCreateContainerGaps(true);
-        gl.setAutoCreateGaps(true);
 
         gl.setHorizontalGroup(gl.createSequentialGroup()
                 .addComponent(arg[0])
@@ -51,7 +47,13 @@ public class InnerClassEx extends JFrame {
         pack();
     }
 
-    private class ButtonCloseListener implements ActionListener {
+    private class MyButton extends JButton implements ActionListener {
+
+        public MyButton(String text) {
+
+            super.setText(text);
+            addActionListener(this);
+        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -63,7 +65,7 @@ public class InnerClassEx extends JFrame {
 
         EventQueue.invokeLater(() -> {
             
-            var ex = new InnerClassEx();
+            var ex = new DerivedClassEx();
             ex.setVisible(true);
         });
     }

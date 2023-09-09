@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.events;
 
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
@@ -6,34 +6,32 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 
-public class MovingWindowEx extends JFrame implements ComponentListener {
+public class AdapterEx extends JFrame {
 
     private JLabel labelx;
     private JLabel labely;
 
-    public MovingWindowEx() {
+    public AdapterEx() {
 
         initUI();
     }
 
     private void initUI() {
 
-        addComponentListener(this);
+        addComponentListener(new MoveAdapter());
 
         labelx = new JLabel("x: ");
         labelx.setFont(new Font("Serif", Font.BOLD, 14));
-        labelx.setBounds(20, 20, 60, 25);
 
         labely = new JLabel("y: ");
         labely.setFont(new Font("Serif", Font.BOLD, 14));
-        labely.setBounds(20, 45, 60, 25);
 
         createLayout(labelx, labely);
 
-        setTitle("Moving window");
+        setTitle("Adapter example");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -62,33 +60,25 @@ public class MovingWindowEx extends JFrame implements ComponentListener {
         pack();
     }
 
-    @Override
-    public void componentResized(ComponentEvent e) {
-    }
+    private class MoveAdapter extends ComponentAdapter {
 
-    @Override
-    public void componentMoved(ComponentEvent e) {
+        @Override
+        public void componentMoved(ComponentEvent e) {
 
-        var x = e.getComponent().getX();
-        var y = e.getComponent().getY();
+            var x = e.getComponent().getX();
+            var y = e.getComponent().getY();
 
-        labelx.setText("x: " + x);
-        labely.setText("y: " + y);
-    }
-
-    @Override
-    public void componentShown(ComponentEvent e) {
-    }
-
-    @Override
-    public void componentHidden(ComponentEvent e) {
+            labelx.setText("x: " + x);
+            labely.setText("y: " + y);
+        }
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            var ex = new MovingWindowEx();
+            var ex = new AdapterEx();
             ex.setVisible(true);
         });
     }
 }
+
