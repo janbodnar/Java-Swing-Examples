@@ -1,31 +1,29 @@
-package com.zetcode;
+package com.zetcode.components;
 
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JLabel;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
-public class ButtonMnemonicEx extends JFrame implements ActionListener {
+public class LabelEx2 extends JFrame {
 
-    public ButtonMnemonicEx() {
+    public LabelEx2() {
 
         initUI();
     }
 
     private void initUI() {
 
-        var showBtn = new JButton("Show");
-        showBtn.addActionListener(this);
-        showBtn.setMnemonic(KeyEvent.VK_S);
+        var lbl1 = new JLabel(new ImageIcon("src/resources/cpu.png"));
+        var lbl2 = new JLabel(new ImageIcon("src/resources/drive.png"));
+        var lbl3 = new JLabel(new ImageIcon("src/resources/laptop.png"));
+        var lbl4 = new JLabel(new ImageIcon("src/resources/player.png"));
 
-        createLayout(showBtn);
+        createLayout(lbl1, lbl2, lbl3, lbl4);
 
-        setTitle("JButton");
+        setTitle("Icons");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -41,29 +39,26 @@ public class ButtonMnemonicEx extends JFrame implements ActionListener {
 
         gl.setHorizontalGroup(gl.createSequentialGroup()
                 .addComponent(arg[0])
-                .addGap(250)
+                .addComponent(arg[1])
+                .addComponent(arg[2])
+                .addComponent(arg[3])
         );
 
         gl.setVerticalGroup(gl.createParallelGroup()
                 .addComponent(arg[0])
-                .addGap(150)
+                .addComponent(arg[1])
+                .addComponent(arg[2])
+                .addComponent(arg[3])
         );
 
         pack();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-        JOptionPane.showMessageDialog(this, "Button clicked",
-                "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
 
-            var ex = new ButtonMnemonicEx();
+            var ex = new LabelEx2();
             ex.setVisible(true);
         });
     }
