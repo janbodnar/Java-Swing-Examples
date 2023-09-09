@@ -56,10 +56,10 @@ public class SliderEx2 extends JFrame {
 
     private void loadImages() {
 
-        mute = new ImageIcon("src/resources/mute.png");
-        min = new ImageIcon("src/resources/min.png");
-        med = new ImageIcon("src/resources/med.png");
-        max = new ImageIcon("src/resources/max.png");
+        mute = new ImageIcon(getClass().getResource("/mute.png"));
+        min = new ImageIcon(getClass().getResource("/min.png"));
+        med = new ImageIcon(getClass().getResource("/med.png"));
+        max = new ImageIcon(getClass().getResource("/max.png"));
     }
 
     private void createLayout(JComponent... arg) {
