@@ -16,8 +16,8 @@ public class ImageIconButtonEx extends JFrame {
 
     private void initUI() {
 
-        var saveIcon = new ImageIcon("src/resources/save.png");
-        var homeIcon = new ImageIcon("src/resources/home.png");
+        var saveIcon = new ImageIcon(getClass().getResource("/save.png"));
+        var homeIcon = new ImageIcon(getClass().getResource("/home.png"));
 
         var quitBtn = new JButton("Quit");
         var saveBtn = new JButton(saveIcon);
