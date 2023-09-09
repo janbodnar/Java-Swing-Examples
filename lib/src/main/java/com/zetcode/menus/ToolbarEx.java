@@ -8,6 +8,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JToolBar;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.net.URL;
 
 public class ToolbarEx extends JFrame {
 
@@ -39,7 +40,7 @@ public class ToolbarEx extends JFrame {
     private void createToolBar() {
 
         var toolbar = new JToolBar();
-        var icon = new ImageIcon("src/resources/exit2.png");
+        var icon = new ImageIcon(getResource("/exit2.png"));
 
         var exitButton = new JButton(icon);
         toolbar.add(exitButton);
@@ -47,6 +48,10 @@ public class ToolbarEx extends JFrame {
         exitButton.addActionListener((e) -> System.exit(0));
 
         add(toolbar, BorderLayout.NORTH);
+    }
+
+    private URL getResource(String path) {
+        return getClass().getResource(path);
     }
 
     public static void main(String[] args) {
