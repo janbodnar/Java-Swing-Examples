@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.model;
 
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
