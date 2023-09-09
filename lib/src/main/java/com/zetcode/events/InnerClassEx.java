@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.events;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -8,9 +8,9 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AnonymousInnerClassEx extends JFrame {
+public class InnerClassEx extends JFrame {
 
-    public AnonymousInnerClassEx() {
+    public InnerClassEx() {
 
         initUI();
     }
@@ -19,17 +19,12 @@ public class AnonymousInnerClassEx extends JFrame {
 
         var closeBtn = new JButton("Close");
 
-        closeBtn.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent event) {
-                System.exit(0);
-            }
-        });
+        var listener = new ButtonCloseListener();
+        closeBtn.addActionListener(listener);
 
         createLayout(closeBtn);
 
-        setTitle("Anonymous inner class");
+        setTitle("Inner class example");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -56,11 +51,19 @@ public class AnonymousInnerClassEx extends JFrame {
         pack();
     }
 
+    private class ButtonCloseListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.exit(0);
+        }
+    }
+
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
             
-            var ex = new AnonymousInnerClassEx();
+            var ex = new InnerClassEx();
             ex.setVisible(true);
         });
     }
