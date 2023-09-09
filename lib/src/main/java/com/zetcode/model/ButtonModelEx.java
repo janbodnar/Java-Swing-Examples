@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.model;
 
 import javax.swing.AbstractAction;
 import javax.swing.DefaultButtonModel;
