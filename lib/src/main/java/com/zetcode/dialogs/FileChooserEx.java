@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.dialogs;
 
 import javax.swing.AbstractAction;
 import javax.swing.GroupLayout;
