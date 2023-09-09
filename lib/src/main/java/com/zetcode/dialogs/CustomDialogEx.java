@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.dialogs;
 
 import javax.swing.Box;
 import javax.swing.GroupLayout;
