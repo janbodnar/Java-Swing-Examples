@@ -28,7 +28,7 @@ public class SimpleMenuEx extends JFrame {
     private void createMenuBar() {
 
         var menuBar = new JMenuBar();
-        var exitIcon = new ImageIcon("src/resources/exit.png");
+        var exitIcon = new ImageIcon(getClass().getResource("/exit.png"));
 
         var fileMenu = new JMenu("File");
         fileMenu.setMnemonic(KeyEvent.VK_F);

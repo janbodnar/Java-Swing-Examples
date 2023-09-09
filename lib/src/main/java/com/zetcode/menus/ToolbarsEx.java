@@ -7,6 +7,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JToolBar;
 import java.awt.EventQueue;
+import java.net.URL;
 
 public class ToolbarsEx extends JFrame {
 
@@ -30,10 +31,10 @@ public class ToolbarsEx extends JFrame {
         var toolbar1 = new JToolBar();
         var toolbar2 = new JToolBar();
 
-        var newIcon = new ImageIcon("src/resources/new2.png");
-        var openIcon = new ImageIcon("src/resources/open2.png");
-        var saveIcon = new ImageIcon("src/resources/save2.png");
-        var exitIcon = new ImageIcon("src/resources/exit2.png");
+        var newIcon  = new ImageIcon(getResource("/new2.png"));
+        var openIcon = new ImageIcon(getResource("/open2.png"));
+        var saveIcon = new ImageIcon(getResource("/save2.png"));
+        var exitIcon = new ImageIcon(getResource("/exit2.png"));
 
         var newBtn = new JButton(newIcon);
         var openBtn = new JButton(openIcon);
@@ -49,6 +50,10 @@ public class ToolbarsEx extends JFrame {
         exitBtn.addActionListener((e) -> System.exit(0));
 
         createLayout(toolbar1, toolbar2);
+    }
+
+    private URL getResource(String path) {
+        return getClass().getResource(path);
     }
 
     private void createLayout(JComponent... arg) {

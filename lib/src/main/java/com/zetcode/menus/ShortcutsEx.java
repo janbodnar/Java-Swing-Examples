@@ -33,10 +33,10 @@ public class ShortcutsEx extends JFrame {
 
         var menuBar = new JMenuBar();
 
-        var iconNew = new ImageIcon("src/resources/new.png");
-        var iconOpen = new ImageIcon("src/resources/open.png");
-        var iconSave = new ImageIcon("src/resources/save.png");
-        var iconExit = new ImageIcon("src/resources/exit.png");
+        var iconNew = new ImageIcon(getClass().getResource("/new.png"));
+        var iconOpen = new ImageIcon(getClass().getResource("/open.png"));
+        var iconSave = new ImageIcon(getClass().getResource("/save.png"));
+        var iconExit = new ImageIcon(getClass().getResource("/exit.png"));
 
         var fileMenu = new JMenu("File");
         fileMenu.setMnemonic(KeyEvent.VK_F);
@@ -69,7 +69,7 @@ public class ShortcutsEx extends JFrame {
         setJMenuBar(menuBar);
     }
 
-    private class MenuItemAction extends AbstractAction {
+    private static class MenuItemAction extends AbstractAction {
 
         public MenuItemAction(String text, ImageIcon icon,
                               Integer mnemonic) {
