@@ -1,32 +1,41 @@
-package com.zetcode;
+package com.zetcode.components2;
 
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import java.awt.Dimension;
+import javax.swing.JLabel;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
 import java.awt.EventQueue;
 
-public class TextAreaEx extends JFrame {
+public class SliderEx extends JFrame {
 
-    public TextAreaEx() {
+    private JSlider slider;
+    private JLabel lbl;
+
+    public SliderEx() {
 
         initUI();
     }
 
     private void initUI() {
 
-        var area = new JTextArea();
-        var spane = new JScrollPane(area);
+        slider = new JSlider(0, 100, 0);
+        slider.setMinorTickSpacing(5);
+        slider.setMajorTickSpacing(10);
+        slider.setPaintTicks(true);
 
-        area.setLineWrap(true);
-        area.setWrapStyleWord(true);
+        slider.addChangeListener((ChangeEvent event) -> {
 
-        createLayout(spane);
+            int value = slider.getValue();
+            lbl.setText(Integer.toString(value));
+        });
 
-        setTitle("JTextArea");
-        setSize(new Dimension(350, 300));
+        lbl = new JLabel("...");
+
+        createLayout(slider, lbl);
+
+        setTitle("JSlider");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -42,11 +51,12 @@ public class TextAreaEx extends JFrame {
 
         gl.setHorizontalGroup(gl.createParallelGroup()
                 .addComponent(arg[0])
-
+                .addComponent(arg[1])
         );
 
         gl.setVerticalGroup(gl.createSequentialGroup()
                 .addComponent(arg[0])
+                .addComponent(arg[1])
         );
 
         pack();
@@ -56,7 +66,7 @@ public class TextAreaEx extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            var ex = new TextAreaEx();
+            var ex = new SliderEx();
             ex.setVisible(true);
         });
     }

@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.components2;
 
 import javax.swing.GroupLayout;
 import javax.swing.JComboBox;
