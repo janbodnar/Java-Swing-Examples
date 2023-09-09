@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.painting;
 
 import java.awt.BasicStroke;
 import java.awt.EventQueue;
