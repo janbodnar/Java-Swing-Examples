@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.resizablecomponent;
 
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;

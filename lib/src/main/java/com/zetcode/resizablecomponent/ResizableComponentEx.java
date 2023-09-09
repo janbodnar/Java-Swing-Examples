@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.resizablecomponent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
