@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.basiclayout;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;

@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.basiclayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
