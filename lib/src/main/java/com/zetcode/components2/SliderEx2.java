@@ -1,6 +1,7 @@
-package com.zetcode;
+package com.zetcode.components2;
 
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,36 +9,57 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import java.awt.EventQueue;
 
-public class SliderEx extends JFrame {
+public class SliderEx2 extends JFrame {
 
     private JSlider slider;
     private JLabel lbl;
 
-    public SliderEx() {
+    private ImageIcon mute;
+    private ImageIcon min;
+    private ImageIcon med;
+    private ImageIcon max;
+
+    public SliderEx2() {
 
         initUI();
     }
 
     private void initUI() {
 
-        slider = new JSlider(0, 100, 0);
-        slider.setMinorTickSpacing(5);
-        slider.setMajorTickSpacing(10);
-        slider.setPaintTicks(true);
+        loadImages();
+
+        slider = new JSlider(0, 150, 0);
 
         slider.addChangeListener((ChangeEvent event) -> {
 
             int value = slider.getValue();
-            lbl.setText(Integer.toString(value));
+
+            if (value == 0) {
+                lbl.setIcon(mute);
+            } else if (value > 0 && value <= 30) {
+                lbl.setIcon(min);
+            } else if (value > 30 && value < 80) {
+                lbl.setIcon(med);
+            } else {
+                lbl.setIcon(max);
+            }
         });
 
-        lbl = new JLabel("...");
+        lbl = new JLabel(mute, JLabel.CENTER);
 
         createLayout(slider, lbl);
 
         setTitle("JSlider");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+    }
+
+    private void loadImages() {
+
+        mute = new ImageIcon("src/resources/mute.png");
+        min = new ImageIcon("src/resources/min.png");
+        med = new ImageIcon("src/resources/med.png");
+        max = new ImageIcon("src/resources/max.png");
     }
 
     private void createLayout(JComponent... arg) {
@@ -49,12 +71,12 @@ public class SliderEx extends JFrame {
         gl.setAutoCreateContainerGaps(true);
         gl.setAutoCreateGaps(true);
 
-        gl.setHorizontalGroup(gl.createParallelGroup()
+        gl.setHorizontalGroup(gl.createSequentialGroup()
                 .addComponent(arg[0])
                 .addComponent(arg[1])
         );
 
-        gl.setVerticalGroup(gl.createSequentialGroup()
+        gl.setVerticalGroup(gl.createParallelGroup()
                 .addComponent(arg[0])
                 .addComponent(arg[1])
         );
@@ -66,7 +88,7 @@ public class SliderEx extends JFrame {
 
         EventQueue.invokeLater(() -> {
 
-            var ex = new SliderEx();
+            var ex = new SliderEx2();
             ex.setVisible(true);
         });
     }

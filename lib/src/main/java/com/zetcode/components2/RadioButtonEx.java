@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.zetcode.components2;
 
 import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
