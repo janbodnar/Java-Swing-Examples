@@ -39,7 +39,7 @@ public class ColorChooserEx extends JFrame {
 
     private JToolBar createToolBar() {
 
-        var openIcon = new ImageIcon("src/resources/colourdlg.png");
+        var openIcon = new ImageIcon(getClass().getResource("/colourdlg.png"));
 
         var toolbar = new JToolBar();
         var openBtn = new JButton(openIcon);

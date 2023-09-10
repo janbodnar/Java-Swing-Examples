@@ -52,7 +52,7 @@ public class FileChooserEx extends JFrame {
 
     private JToolBar createToolBar() {
 
-        var openIcon = new ImageIcon("src/resources/document-open.png");
+        var openIcon = new ImageIcon(getClass().getResource("/document-open.png"));
 
         var toolbar = new JToolBar();
         var openBtn = new JButton(openIcon);
