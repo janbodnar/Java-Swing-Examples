@@ -27,7 +27,7 @@ class DrawPanel extends JPanel {
 
     private void loadImage() {
 
-        myImage = new ImageIcon("src/resources/icesid.jpg").getImage();
+        myImage = new ImageIcon(getClass().getResource("/icesid.jpg")).getImage();
     }
 
     private void doDrawing(Graphics g) {
