@@ -5,7 +5,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
-import java.awt.EventQueue;
+import java.awt.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +26,7 @@ public class TextPaneEx extends JFrame {
 
         textPane.setContentType("text/html");
         textPane.setEditable(false);
+        textPane.setPreferredSize(new Dimension(300, 200));
 
         loadFile();
 
@@ -59,8 +60,7 @@ public class TextPaneEx extends JFrame {
     private void loadFile() {
 
         try {
-            var curDir = System.getProperty("user.dir") + "/";
-            textPane.setPage("File:///" + curDir + "test.html");
+            textPane.setPage(getClass().getResource("/test.html"));
         } catch (IOException ex) {
             Logger.getLogger(this.getName()).log(Level.SEVERE,
                     "Failed to load file", ex);
