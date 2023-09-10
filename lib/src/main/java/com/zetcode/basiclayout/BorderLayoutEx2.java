@@ -31,7 +31,7 @@ public class BorderLayoutEx2 extends JFrame {
         var toolbar = new JToolBar();
         toolbar.setFloatable(false);
 
-        var exitIcon = new ImageIcon("src/resources/exit.png");
+        var exitIcon = new ImageIcon(getClass().getResource("/basiclayout/exit.png"));
         var exitBtn = new JButton(exitIcon);
         exitBtn.setBorder(new EmptyBorder(0, 0, 0, 0));
         toolbar.add(exitBtn);
@@ -42,9 +42,9 @@ public class BorderLayoutEx2 extends JFrame {
         vertical.setFloatable(false);
         vertical.setMargin(new Insets(10, 5, 5, 5));
 
-        var driveIcon = new ImageIcon("src/resources/drive.png");
-        var compIcon = new ImageIcon("src/resources/computer.png");
-        var printIcon = new ImageIcon("src/resources/printer.png");
+        var driveIcon = new ImageIcon(getClass().getResource("/basiclayout/drive.png"));
+        var compIcon = new ImageIcon(getClass().getResource("/computer.png"));
+        var printIcon = new ImageIcon(getClass().getResource("/printer.png"));
 
         var driveBtn = new JButton(driveIcon);
         driveBtn.setBorder(new EmptyBorder(3, 0, 3, 0));

@@ -40,13 +40,13 @@ public class CardLayoutEx extends JFrame {
         cardLayout = new CardLayout();
         mainPanel.setLayout(cardLayout);
 
-        horka1 = new ImageIcon("src/resources/horka1.jpg");
-        horka2 = new ImageIcon("src/resources/horka2.jpg");
-        horka3 = new ImageIcon("src/resources/horka3.jpg");
-        horka4 = new ImageIcon("src/resources/horka4.jpg");
+        horka1 = new ImageIcon(getClass().getResource("/horka1.jpg"));
+        horka2 = new ImageIcon(getClass().getResource("/horka2.jpg"));
+        horka3 = new ImageIcon(getClass().getResource("/horka3.jpg"));
+        horka4 = new ImageIcon(getClass().getResource("/horka4.jpg"));
 
-        previ = new ImageIcon("src/resources/previous.png");
-        nexti = new ImageIcon("src/resources/next.png");
+        previ = new ImageIcon(getClass().getResource("/previous.png"));
+        nexti = new ImageIcon(getClass().getResource("/next.png"));
 
         var label1 = new JLabel(horka1);
         var label2 = new JLabel(horka2);
