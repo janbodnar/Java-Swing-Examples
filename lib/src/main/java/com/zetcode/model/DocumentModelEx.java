@@ -47,10 +47,10 @@ public class DocumentModelEx extends JFrame {
 
         var toolbar = new JToolBar();
 
-        var bold = new ImageIcon("src/main/resources/bold.png");
-        var italic = new ImageIcon("src/main/resources/italic.png");
-        var strike = new ImageIcon("src/main/resources/strike.png");
-        var underline = new ImageIcon("src/main/resources/underline.png");
+        var bold = new ImageIcon(getClass().getResource("/bold.png"));
+        var italic = new ImageIcon(getClass().getResource("/italic.png"));
+        var strike = new ImageIcon(getClass().getResource("/strike.png"));
+        var underline = new ImageIcon(getClass().getResource("/underline.png"));
 
         var boldBtn = new JButton(bold);
         var italBtn = new JButton(italic);
