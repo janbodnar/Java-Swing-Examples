@@ -31,7 +31,7 @@ class AboutDialog extends JDialog {
 
     private void initUI() {
 
-        var icon = new ImageIcon("src/resources/notes.png");
+        var icon = new ImageIcon(getClass().getResource("/notes.png"));
         var imgLabel = new JLabel(icon);
 
         var textLabel = new JLabel("Notes, 1.23");
