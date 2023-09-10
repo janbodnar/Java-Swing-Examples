@@ -21,9 +21,9 @@ public class IconDnD extends JFrame {
 
     private void initUI() {
 
-        var icon1 = new ImageIcon("src/resources/sad.png");
-        var icon2 = new ImageIcon("src/resources/plain.png");
-        var icon3 = new ImageIcon("src/resources/smile.png");
+        var icon1 = new ImageIcon(getClass().getResource("/sad.png"));
+        var icon2 = new ImageIcon(getClass().getResource("/plain.png"));
+        var icon3 = new ImageIcon(getClass().getResource("/smile.png"));
 
         var label1 = new JLabel(icon1, JLabel.CENTER);
         var label2 = new JLabel(icon2, JLabel.CENTER);
