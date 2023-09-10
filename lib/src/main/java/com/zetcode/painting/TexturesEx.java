@@ -28,9 +28,9 @@ class DrawingPanel extends JPanel {
 
         try {
 
-            slate = ImageIO.read(new File("src/resources/slate.png"));
-            java = ImageIO.read(new File("src/resources/java.png"));
-            pane = ImageIO.read(new File("src/resources/pane.png"));
+            slate = ImageIO.read(new File(getClass().getResource("/slate.png").getPath()));
+            java = ImageIO.read(new File(getClass().getResource("/java.png").getPath()));
+            pane = ImageIO.read(new File(getClass().getResource("/pane.png").getPath()));
 
         } catch (IOException ex) {
 
