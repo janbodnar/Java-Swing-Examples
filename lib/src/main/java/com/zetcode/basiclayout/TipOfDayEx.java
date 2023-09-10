@@ -38,7 +38,7 @@ public class TipOfDayEx extends JDialog {
         hint.setBorder(BorderFactory.createEmptyBorder(0, 25, 0, 0));
         topPanel.add(hint);
 
-        var icon = new ImageIcon("src/resources/coffee2.png");
+        var icon = new ImageIcon(getClass().getResource("/coffee2.png"));
         var label = new JLabel(icon);
         label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         topPanel.add(label, BorderLayout.EAST);
