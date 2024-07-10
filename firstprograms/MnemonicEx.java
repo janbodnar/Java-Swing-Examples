@@ -17,7 +17,7 @@ public class MnemonicEx extends JFrame {
     private void initUI() {
 
         var btn = new JButton("Button");
-        btn.addActionListener((event) -> System.out.println("Button pressed"));
+        btn.addActionListener(_ -> System.out.println("Button pressed"));
 
         btn.setMnemonic(KeyEvent.VK_B);
 
