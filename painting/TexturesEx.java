@@ -68,7 +68,7 @@ class DrawingPanel extends JPanel {
     }
 }
 
-class TexturesEx extends JFrame {
+public class TexturesEx extends JFrame {
 
     public TexturesEx() {
 
