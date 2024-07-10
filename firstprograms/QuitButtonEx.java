@@ -17,7 +17,7 @@ public class QuitButtonEx extends JFrame {
 
         var quitButton = new JButton("Quit");
 
-        quitButton.addActionListener((event) -> System.exit(0));
+        quitButton.addActionListener(_ -> System.exit(0));
 
         createLayout(quitButton);
 
