@@ -1,7 +1,7 @@
 # Java-Swing-Examples
 Java Swing code examples from Java Swing tutorial
 
-Built with OpenJDK 13
+Built with JDK 22
 
 https://zetcode.com/javaswing/
 
