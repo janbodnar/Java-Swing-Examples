@@ -1,83 +1,81 @@
-package com.zetcode
+package com.zetcode;
 
-import java.awt.EventQueue
-import java.awt.event.ItemEvent
-import java.awt.event.ItemListener
-import javax.swing.GroupLayout
-import javax.swing.GroupLayout.Alignment.BASELINE
-import javax.swing.JComboBox
-import javax.swing.JComponent
-import javax.swing.JFrame
-import javax.swing.JLabel
+import javax.swing.GroupLayout;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.EventQueue;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-class ComboBoxEx(title: String) : JFrame(), ItemListener {
+import static javax.swing.GroupLayout.Alignment.BASELINE;
 
-    private lateinit var display: JLabel
-    private lateinit var box: JComboBox<String>
+public class ComboBoxEx extends JFrame
+        implements ItemListener {
 
-    init {
-        createUI(title)
+    private JLabel display;
+    private JComboBox<String> box;
+    private String[] distros;
+
+    public ComboBoxEx() {
+
+        initUI();
     }
 
-    private fun createUI(title: String) {
+    private void initUI() {
 
-        val distros = arrayOf(
-            "Ubuntu", "Redhat", "Arch",
-            "Debian", "Mint"
-        )
+        distros = new String[]{"Ubuntu", "Redhat", "Arch",
+                "Debian", "Mint"};
 
-        box = JComboBox<String>(distros)
-        box.font = box.font.deriveFont(14f)
-        box.addItemListener(this)
+        box = new JComboBox<>(distros);
+        box.addItemListener(this);
 
-        display = JLabel("Ubuntu")
-        display.font = display.font.deriveFont(14f)
+        display = new JLabel("Ubuntu");
 
-        createLayout(box, display)
+        createLayout(box, display);
 
-        setTitle(title)
-
-        defaultCloseOperation = EXIT_ON_CLOSE
-        setSize(400, 350)
-        setLocationRelativeTo(null)
+        setTitle("JComboBox");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
-    override fun itemStateChanged(e: ItemEvent) {
+    private void createLayout(JComponent... arg) {
 
-        if (e.stateChange == ItemEvent.SELECTED) {
-            display.text = e.item.toString()
+        var pane = getContentPane();
+        var gl = new GroupLayout(pane);
+        pane.setLayout(gl);
+
+        gl.setAutoCreateContainerGaps(true);
+        gl.setAutoCreateGaps(true);
+
+        gl.setHorizontalGroup(gl.createSequentialGroup()
+                .addComponent(arg[0])
+                .addComponent(arg[1])
+        );
+
+        gl.setVerticalGroup(gl.createParallelGroup(BASELINE)
+                .addComponent(arg[0])
+                .addComponent(arg[1])
+        );
+
+        pack();
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            display.setText(e.getItem().toString());
         }
     }
 
-    private fun createLayout(vararg arg: JComponent) {
+    public static void main(String[] args) {
 
-        val pane = contentPane
-        val gl = GroupLayout(pane)
-        pane.layout = gl
+        EventQueue.invokeLater(() -> {
 
-        gl.autoCreateContainerGaps = true
-        gl.autoCreateGaps = true
-
-        gl.setHorizontalGroup(
-            gl.createSequentialGroup()
-                .addComponent(arg[0])
-                .addComponent(arg[1])
-        )
-        gl.setVerticalGroup(
-            gl.createParallelGroup(BASELINE)
-                .addComponent(arg[0])
-                .addComponent(arg[1])
-        )
-        pack()
+            var ex = new ComboBoxEx();
+            ex.setVisible(true);
+        });
     }
-}
-
-private fun createAndShowGUI() {
-
-    val frame = ComboBoxEx("JComboBox")
-    frame.isVisible = true
-}
-
-fun main() {
-    EventQueue.invokeLater(::createAndShowGUI)
 }
