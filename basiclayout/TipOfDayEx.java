@@ -55,9 +55,10 @@ public class TipOfDayEx extends JDialog {
 
         var pane = new JTextPane();
         pane.setContentType("text/html");
-        var text = "<p><b>Closing windows using the mouse wheel</b></p>" +
-                "<p>Clicking with the mouse wheel on an editor tab closes the window. " +
-                "This method works also with dockable windows or Log window tabs.</p>";
+        var text = """
+                <p><b>Closing windows using the mouse wheel</b></p>
+                <p>Clicking with the mouse wheel on an editor tab closes the window.
+                This method works also with dockable windows or Log window tabs.</p>""";
         pane.setText(text);
         pane.setEditable(false);
         textPanel.add(pane);
