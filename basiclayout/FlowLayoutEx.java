@@ -5,45 +5,48 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTree;
+import javax.swing.WindowConstants;
+
 import java.awt.Dimension;
 import java.awt.EventQueue;
 
 public class FlowLayoutEx extends JFrame {
 
-    public FlowLayoutEx() {
+  public FlowLayoutEx() {
 
-        initUI();
-    }
+    initUI();
+  }
 
-    private void initUI() {
+  private void initUI() {
 
-        var panel = new JPanel();
+    var panel = new JPanel();
 
-        var button = new JButton("button");
-        panel.add(button);
+    var button = new JButton("button");
+    panel.add(button);
 
-        var tree = new JTree();
-        panel.add(tree);
+    var tree = new JTree();
+    tree.setPreferredSize(new Dimension(250, 250));
+    panel.add(tree);
 
-        var area = new JTextArea("text area");
-        area.setPreferredSize(new Dimension(100, 100));
+    var area = new JTextArea("text area");
+    area.setPreferredSize(new Dimension(300, 300));
 
-        panel.add(area);
+    panel.add(area);
 
-        add(panel);
+    add(panel);
 
-        pack();
+    pack();
 
-        setTitle("FlowLayout example");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-    }
+    setTitle("FlowLayout example");
+    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    setLocationRelativeTo(null);
+  }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        EventQueue.invokeLater(() -> {
-            var ex = new FlowLayoutEx();
-            ex.setVisible(true);
-        });
-    }
+    EventQueue.invokeLater(() -> {
+      var ex = new FlowLayoutEx();
+      ex.setVisible(true);
+    });
+  }
 }
