@@ -2,39 +2,41 @@ package com.zetcode;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+
 import java.awt.EventQueue;
 
 public class AbsoluteLayoutEx extends JFrame {
 
-    public AbsoluteLayoutEx() {
+  public AbsoluteLayoutEx() {
 
-        initUI();
-    }
+    initUI();
+  }
 
-    private void initUI() {
+  private void initUI() {
 
-        setLayout(null);
+    setLayout(null);
 
-        var okBtn = new JButton("OK");
-        okBtn.setBounds(50, 50, 80, 25);
+    var okBtn = new JButton("OK");
+    okBtn.setBounds(50, 50, 80, 25);
 
-        var closeBtn = new JButton("Close");
-        closeBtn.setBounds(150, 50, 80, 25);
+    var closeBtn = new JButton("Close");
+    closeBtn.setBounds(150, 50, 80, 25);
 
-        add(okBtn);
-        add(closeBtn);
+    add(okBtn);
+    add(closeBtn);
 
-        setTitle("Absolute positioning");
-        setSize(300, 250);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-    }
+    setTitle("Absolute positioning");
+    setSize(300, 250);
+    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    setLocationRelativeTo(null);
+  }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        EventQueue.invokeLater(() -> {
-            var ex = new AbsoluteLayoutEx();
-            ex.setVisible(true);
-        });
-    }
+    EventQueue.invokeLater(() -> {
+      var ex = new AbsoluteLayoutEx();
+      ex.setVisible(true);
+    });
+  }
 }
