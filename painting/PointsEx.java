@@ -8,38 +8,38 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.Random;
 
-class DrawPanel extends JPanel {
+public class PointsEx extends JFrame {
 
-    private void doDrawing(Graphics g) {
+    static class DrawPanel extends JPanel {
 
-        var g2d = (Graphics2D) g;
+        private void doDrawing(Graphics g) {
 
-        g2d.setColor(Color.blue);
+            var g2d = (Graphics2D) g;
 
-        for (int i = 0; i <= 1000; i++) {
+            g2d.setColor(Color.blue);
 
-            var size = getSize();
-            var insets = getInsets();
+            for (int i = 0; i <= 1000; i++) {
 
-            int w = size.width - insets.left - insets.right;
-            int h = size.height - insets.top - insets.bottom;
+                var size = getSize();
+                var insets = getInsets();
 
-            var r = new Random();
-            int x = Math.abs(r.nextInt()) % w;
-            int y = Math.abs(r.nextInt()) % h;
-            g2d.drawLine(x, y, x, y);
+                int w = size.width - insets.left - insets.right;
+                int h = size.height - insets.top - insets.bottom;
+
+                var r = new Random();
+                int x = Math.abs(r.nextInt()) % w;
+                int y = Math.abs(r.nextInt()) % h;
+                g2d.drawLine(x, y, x, y);
+            }
+        }
+
+        @Override
+        public void paintComponent(Graphics g) {
+
+            super.paintComponent(g);
+            doDrawing(g);
         }
     }
-
-    @Override
-    public void paintComponent(Graphics g) {
-
-        super.paintComponent(g);
-        doDrawing(g);
-    }
-}
-
-public class PointsEx extends JFrame {
 
     public PointsEx() {
 

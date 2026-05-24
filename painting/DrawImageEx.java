@@ -9,43 +9,43 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 
-class DrawPanel extends JPanel {
-
-    private Image myImage;
-
-    public DrawPanel() {
-
-        initPanel();
-    }
-
-    private void initPanel() {
-
-        loadImage();
-        var dm = new Dimension(myImage.getWidth(null), myImage.getHeight(null));
-        setPreferredSize(dm);
-    }
-
-    private void loadImage() {
-
-        myImage = new ImageIcon("src/resources/icesid.jpg").getImage();
-    }
-
-    private void doDrawing(Graphics g) {
-
-        var g2d = (Graphics2D) g;
-
-        g2d.drawImage(myImage, 0, 0, null);
-    }
-
-    @Override
-    public void paintComponent(Graphics g) {
-
-        super.paintComponent(g);
-        doDrawing(g);
-    }
-}
-
 public class DrawImageEx extends JFrame {
+
+    static class DrawPanel extends JPanel {
+
+        private Image myImage;
+
+        public DrawPanel() {
+
+            initPanel();
+        }
+
+        private void initPanel() {
+
+            loadImage();
+            var dm = new Dimension(myImage.getWidth(null), myImage.getHeight(null));
+            setPreferredSize(dm);
+        }
+
+        private void loadImage() {
+
+            myImage = new ImageIcon("src/resources/icesid.jpg").getImage();
+        }
+
+        private void doDrawing(Graphics g) {
+
+            var g2d = (Graphics2D) g;
+
+            g2d.drawImage(myImage, 0, 0, null);
+        }
+
+        @Override
+        public void paintComponent(Graphics g) {
+
+            super.paintComponent(g);
+            doDrawing(g);
+        }
+    }
 
     public DrawImageEx() {
 
